@@ -27,7 +27,7 @@ namespace BirdManagment
 
         private void REGISTER_Click(object sender, EventArgs e)
         {
-            var myForm = new Register();
+            var myForm = new Dashboard();
             myForm.Show();
             this.Hide();
 
