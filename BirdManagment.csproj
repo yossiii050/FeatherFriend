@@ -91,7 +91,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+   
     <Compile Include="Login_v1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,8 +115,8 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+  
+      
     <EmbeddedResource Include="Login_v1.resx">
       <DependentUpon>Login_v1.cs</DependentUpon>
     </EmbeddedResource>

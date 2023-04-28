@@ -120,11 +120,11 @@ namespace BirdManagment
                 {
                     digitCount++;
                 }
-                else if (!Char.IsLetter(c))
+                /*else if (!Char.IsLetter(c))
                 {
-                    MessageBox.Show("Username must contain only letters and digits.");
+                   // MessageBox.Show("Username must contain only letters and digits.");
                     return;
-                }
+                }*/
             }
 
             if (digitCount > 2)
@@ -132,13 +132,13 @@ namespace BirdManagment
                 MessageBox.Show("Username must contain at most 2 digits.");
                 return;
             }
-
+            /*
             if (!IsUsernameValid(username))
             {
                 MessageBox.Show("Username must contain between 6 and 8 characters. Of the characters, at most 2 digits and all the rest letters.");
                 return;
             }
-
+            */
             if (!IsPasswordValid(password))
             {
                 MessageBox.Show("Password must be between 8 and 10 characters, and contain at least one letter, one digit, and one special character.");
@@ -166,7 +166,9 @@ namespace BirdManagment
                 if (rowUsername == username && rowPassword == password)
                 {
                     MessageBox.Show("Login successful!");
-                    // do something here, like opening a new form
+                    var myForm = new Dashboard();
+                    myForm.Show();
+                    this.Hide();
                     return;
                 }
             }

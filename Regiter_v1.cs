@@ -110,20 +110,39 @@ namespace BirdManagment
                 return;
             }
 
+            // Check if the username already exists in the Excel file
+            Application app = new Application();
+            app.Visible = true;
+            Workbook wb = app.Workbooks.Open(@"C:\FetherFriendDocuments\TestWorkbook.xlsx");
+            Worksheet ws = wb.Worksheets["sheet1"];
+
+            int lastRow = ws.Cells.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
+            for (int i = 2; i <= lastRow; i++)
+            {
+                string existingUsername = ws.Cells[i, 1].Value;
+                if (existingUsername == username)
+                {
+                    MessageBox.Show("Username already exists. Please choose a different username.");
+                    wb.Close(false);
+                    app.Quit();
+                    return;
+                }
+            }
+
             /*
             if (!IsUsernameValid(username))
             {
                 MessageBox.Show("Username must contain between 6 and 8 characters. Of the characters, at most 2 digits and all the rest letters.");
                 return;
             }
-
+  */
             if (!IsPasswordValid(password))
             {
                 MessageBox.Show("Password must be between 8 and 10 characters, and contain at least one letter, one digit, and one special character.");
                 return;
             }
 
-            */
+          
 
 
             if (password != confirmPW)
@@ -132,10 +151,11 @@ namespace BirdManagment
                 return;
             }
             // Open the workbook and worksheet
-            Application app = new Application();
+           /* Application app = new Application();
             app.Visible = true;
-            Workbook wb = app.Workbooks.Open(@"C:\FetherFriendDocuments\TestWorkbook.xlsx");
+            Workbook wb = app.Workbooks.Open(@"C:\FetherFriendDocuments\FeatherFriendUsers.xlsx");
             Worksheet ws = wb.Worksheets["sheet1"];
+           */
 
             // Find the first empty row in the worksheet
             int row = 2;
@@ -153,6 +173,11 @@ namespace BirdManagment
             //wb.Close();
 
             MessageBox.Show("User registered successfully!");
+            
+            
+            var myForm = new Dashboard();
+            myForm.Show();
+            this.Hide();
 
 
 
