@@ -75,7 +75,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(180, 50);
             this.button3.TabIndex = 1;
-            this.button3.Text = "Dashboard";
+            this.button3.Text = "Add Cage";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -91,7 +91,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 50);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Dashboard";
+            this.button2.Text = "Add Bird";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -129,7 +129,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label2.Location = new System.Drawing.Point(1, 171);
+            this.label2.Location = new System.Drawing.Point(-1, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 20);
             this.label2.TabIndex = 2;
