@@ -66,13 +66,13 @@ namespace BirdManagment
        // {
        // }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void BtnClear_Click(object sender, EventArgs e)
         {
             txtLoginUsername.Text = "";
             txtLoginPassword.Text = "";
         }
 
-        private void chkBxShowPW_CheckedChanged(object sender, EventArgs e)
+        private void ChkBxShowPW_CheckedChanged(object sender, EventArgs e)
         {
             if (chkBxShowPW.Checked)
             {
@@ -86,7 +86,7 @@ namespace BirdManagment
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnToRegister_Click(object sender, EventArgs e)
         {
             var myForm = new Regiter_v1();
             myForm.Show();
@@ -94,7 +94,7 @@ namespace BirdManagment
 
         }
 
-        private void btnLogin_Click_1(object sender, EventArgs e)
+        private void BtnLogin_Click_1(object sender, EventArgs e)
         {
             string username = txtLoginUsername.Text.Trim();
             string password = txtLoginPassword.Text.Trim();
@@ -147,7 +147,7 @@ namespace BirdManagment
 
 
             // load the Excel file
-            string filePath = @"C:\FetherFriendDocuments\TestWorkbook.xlsx";
+            string filePath = @"C:\FetherFriendDocuments\NewWorkbook.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(filePath);
             Worksheet ws = wb.Worksheets["sheet1"];
@@ -178,22 +178,22 @@ namespace BirdManagment
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtLoginUsername_TextChanged(object sender, EventArgs e)
+        private void TxtLoginUsername_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtLoginPassword_TextChanged(object sender, EventArgs e)
+        private void TxtLoginPassword_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void Label5_Click(object sender, EventArgs e)
         {
 
         }

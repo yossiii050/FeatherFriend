@@ -43,7 +43,7 @@ namespace BirdManagment
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             panel3.Height = button1.Height;
             panel3.Top = button1.Top;
@@ -51,7 +51,7 @@ namespace BirdManagment
             button1.BackColor=Color.FromArgb(46,51,73);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             panel3.Height = button2.Height;
             panel3.Top = button2.Top;
@@ -59,7 +59,7 @@ namespace BirdManagment
             button2.BackColor = Color.FromArgb(46, 51, 73);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             panel3.Height = button3.Height;
             panel3.Top = button3.Top;
@@ -67,15 +67,15 @@ namespace BirdManagment
             button3.BackColor = Color.FromArgb(46, 51, 73);
         }
 
-        private void button1_Leave(object sender, EventArgs e)
+        private void Button1_Leave(object sender, EventArgs e)
         {
             button1.BackColor = Color.FromArgb(24, 30, 54);
         }
-        private void button2_Leave(object sender, EventArgs e)
+        private void Button2_Leave(object sender, EventArgs e)
         {
             button2.BackColor = Color.FromArgb(24, 30, 54);
         }
-        private void button3_Leave(object sender, EventArgs e)
+        private void Button3_Leave(object sender, EventArgs e)
         {
             button3.BackColor = Color.FromArgb(24, 30, 54);
         }

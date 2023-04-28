@@ -54,7 +54,7 @@
             this.btnRegister.TabIndex = 17;
             this.btnRegister.Text = "REGISTER";
             this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
             // chkBxShowPW
             // 
@@ -67,7 +67,7 @@
             this.chkBxShowPW.TabIndex = 16;
             this.chkBxShowPW.Text = "Show Password";
             this.chkBxShowPW.UseVisualStyleBackColor = true;
-            this.chkBxShowPW.CheckedChanged += new System.EventHandler(this.chkBxShowPW_CheckedChanged);
+            this.chkBxShowPW.CheckedChanged += new System.EventHandler(this.ChkBxShowPW_CheckedChanged);
             // 
             // txtRegisterPassword
             // 
@@ -80,7 +80,7 @@
             this.txtRegisterPassword.PasswordChar = '•';
             this.txtRegisterPassword.Size = new System.Drawing.Size(216, 28);
             this.txtRegisterPassword.TabIndex = 13;
-            this.txtRegisterPassword.TextChanged += new System.EventHandler(this.txtRegisterPassword_TextChanged);
+            this.txtRegisterPassword.TextChanged += new System.EventHandler(this.TxtRegisterPassword_TextChanged);
             // 
             // label3
             // 
@@ -134,7 +134,7 @@
             this.btnClear.TabIndex = 18;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.Button1_Click);
+            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // label5
             // 
@@ -154,7 +154,7 @@
             this.button2.TabIndex = 20;
             this.button2.Text = "back to LOGIN";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // label4
             // 
@@ -176,7 +176,7 @@
             this.txtRegisterConfirmPW.PasswordChar = '•';
             this.txtRegisterConfirmPW.Size = new System.Drawing.Size(216, 28);
             this.txtRegisterConfirmPW.TabIndex = 15;
-            this.txtRegisterConfirmPW.TextChanged += new System.EventHandler(this.txtRegisterConfirmPW_TextChanged);
+            this.txtRegisterConfirmPW.TextChanged += new System.EventHandler(this.TxtRegisterConfirmPW_TextChanged);
             // 
             // Regiter_v1
             // 

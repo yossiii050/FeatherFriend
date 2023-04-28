@@ -35,7 +35,7 @@
             this.chkBxShowPW = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnToRegister = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             this.label2.Size = new System.Drawing.Size(89, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Username";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // txtLoginUsername
             // 
@@ -71,7 +71,7 @@
             this.txtLoginUsername.Name = "txtLoginUsername";
             this.txtLoginUsername.Size = new System.Drawing.Size(216, 28);
             this.txtLoginUsername.TabIndex = 2;
-            this.txtLoginUsername.TextChanged += new System.EventHandler(this.txtLoginUsername_TextChanged);
+            this.txtLoginUsername.TextChanged += new System.EventHandler(this.TxtLoginUsername_TextChanged);
             // 
             // txtLoginPassword
             // 
@@ -84,7 +84,7 @@
             this.txtLoginPassword.PasswordChar = '•';
             this.txtLoginPassword.Size = new System.Drawing.Size(216, 28);
             this.txtLoginPassword.TabIndex = 4;
-            this.txtLoginPassword.TextChanged += new System.EventHandler(this.txtLoginPassword_TextChanged);
+            this.txtLoginPassword.TextChanged += new System.EventHandler(this.TxtLoginPassword_TextChanged);
             // 
             // label3
             // 
@@ -105,7 +105,7 @@
             this.chkBxShowPW.TabIndex = 7;
             this.chkBxShowPW.Text = "Show Password";
             this.chkBxShowPW.UseVisualStyleBackColor = true;
-            this.chkBxShowPW.CheckedChanged += new System.EventHandler(this.chkBxShowPW_CheckedChanged);
+            this.chkBxShowPW.CheckedChanged += new System.EventHandler(this.ChkBxShowPW_CheckedChanged);
             // 
             // btnLogin
             // 
@@ -119,7 +119,7 @@
             this.btnLogin.TabIndex = 18;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click_1);
             // 
             // btnClear
             // 
@@ -133,18 +133,18 @@
             this.btnClear.TabIndex = 19;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
-            // button2
+            // btnToRegister
             // 
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.button2.Location = new System.Drawing.Point(94, 558);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 37);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Create Account";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnToRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.btnToRegister.Location = new System.Drawing.Point(94, 558);
+            this.btnToRegister.Name = "btnToRegister";
+            this.btnToRegister.Size = new System.Drawing.Size(151, 37);
+            this.btnToRegister.TabIndex = 22;
+            this.btnToRegister.Text = "Create Account";
+            this.btnToRegister.UseVisualStyleBackColor = true;
+            this.btnToRegister.Click += new System.EventHandler(this.BtnToRegister_Click);
             // 
             // label5
             // 
@@ -154,7 +154,7 @@
             this.label5.Size = new System.Drawing.Size(197, 23);
             this.label5.TabIndex = 21;
             this.label5.Text = "Don\'t have an Account?";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
             // Login_v1
             // 
@@ -162,7 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(351, 596);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnToRegister);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnLogin);
@@ -195,7 +195,7 @@
         private System.Windows.Forms.CheckBox chkBxShowPW;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnToRegister;
         private System.Windows.Forms.Label label5;
     }
 }

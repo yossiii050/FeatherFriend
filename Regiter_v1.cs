@@ -20,7 +20,7 @@ namespace BirdManagment
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnClear_Click(object sender, EventArgs e)
         {
             txtRegisterUsername.Text = "";
             txtRegisterPassword.Text = "";
@@ -33,7 +33,7 @@ namespace BirdManagment
 
         }
 
-        private void chkBxShowPW_CheckedChanged(object sender, EventArgs e)
+        private void ChkBxShowPW_CheckedChanged(object sender, EventArgs e)
         {
             if (chkBxShowPW.Checked) {
                 txtRegisterPassword.PasswordChar = '\0';
@@ -47,17 +47,17 @@ namespace BirdManagment
             }
         }
 
-        private void txtRegisterConfirmPW_TextChanged(object sender, EventArgs e)
+        private void TxtRegisterConfirmPW_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtRegisterPassword_TextChanged(object sender, EventArgs e)
+        private void TxtRegisterPassword_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void BtnRegister_Click(object sender, EventArgs e)
         {
             // Application app = new Application();
             // app.Visible = true;
@@ -112,8 +112,8 @@ namespace BirdManagment
 
             // Check if the username already exists in the Excel file
             Application app = new Application();
-            app.Visible = true;
-            Workbook wb = app.Workbooks.Open(@"C:\FetherFriendDocuments\TestWorkbook.xlsx");
+            app.Visible = false;
+            Workbook wb = app.Workbooks.Open(@"C:\FetherFriendDocuments\NewWorkbook.xlsx");
             Worksheet ws = wb.Worksheets["sheet1"];
 
             int lastRow = ws.Cells.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
@@ -142,20 +142,12 @@ namespace BirdManagment
                 return;
             }
 
-          
-
-
             if (password != confirmPW)
             {
                 MessageBox.Show("Password and confirm password do not match!");
                 return;
             }
-            // Open the workbook and worksheet
-           /* Application app = new Application();
-            app.Visible = true;
-            Workbook wb = app.Workbooks.Open(@"C:\FetherFriendDocuments\FeatherFriendUsers.xlsx");
-            Worksheet ws = wb.Worksheets["sheet1"];
-           */
+
 
             // Find the first empty row in the worksheet
             int row = 2;
@@ -169,9 +161,14 @@ namespace BirdManagment
             ws.Cells[row, 2].Value = password;
 
             // Save and close the workbook
-            wb.Save();
-            //wb.Close();
+            // Save the workbook to a different location and with a different name
+            //wb.SaveAs(@"C:\FetherFriendDocuments\NewWorkbook.xlsx");
 
+
+            wb.Save();
+            
+            //wb.SaveAs(@"C:\FetherFriendDocuments\TestWorkbook.xlsx");
+            wb.Close();
             MessageBox.Show("User registered successfully!");
             
             
@@ -183,7 +180,7 @@ namespace BirdManagment
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             var myForm = new Login_v1();
             myForm.Show();
