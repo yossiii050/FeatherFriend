@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -42,7 +43,7 @@ namespace BirdManagment
         private void Login_v1_Load(object sender, EventArgs e)
         {
             // Load the Excel file containing the usernames and passwords
-            string excelFilePath = @"C:\FetherFriendDocuments\TestWorkbook.xlsx";
+            string excelFilePath = @"C:\FeatherFriendDocuments\TestWorkbook.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(excelFilePath);
             Worksheet ws = wb.Worksheets["sheet1"];
@@ -58,8 +59,8 @@ namespace BirdManagment
             }
 
             // Close the Excel file
-            //wb.Close();
-            //app.Quit();
+           // wb.Close();
+           // app.Quit();
         }
 
         //private void btnLogin_Click(object sender, EventArgs e)
@@ -147,36 +148,58 @@ namespace BirdManagment
 
 
             // load the Excel file
-            string filePath = @"C:\FetherFriendDocuments\NewWorkbook.xlsx";
+            string filePath = @"C:\FeatherFriendDocuments\TestWorkbook.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(filePath);
             Worksheet ws = wb.Worksheets["sheet1"];
 
-            // get the used range of the worksheet
-            Range usedRange = ws.UsedRange;
-
-            // loop through the rows of the used range
-            for (int i = 2; i <= usedRange.Rows.Count; i++)
+            // Read the data from the Excel file and store it in memory
+            int rowCount = ws.Cells.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
+           // userCredentials = new Dictionary<string, string>();
+            for (int i = 2; i <= rowCount; i++)
             {
-                // get the username and password from the current row
-                string rowUsername = "" + ws.Cells[i, 1].Value;
-                string rowPassword = "" + ws.Cells[i, 2].Value;
+                string rowUsername = ws.Cells[i, 1].Value.ToString().Trim();
+                string rowPassword = ws.Cells[i, 2].Value.ToString().Trim();
 
-                // check if the entered username and password match the current row
-                if (rowUsername == username && rowPassword == password)
-                {
-                    MessageBox.Show("Login successful!");
-                    var myForm = new Dashboard();
-                    myForm.Show();
-                    this.Hide();
-                    return;
-                }
+                if (CompareStrings(rowUsername, username) == 0)
+                    if (CompareStrings(rowPassword, password) == 0)
+                    {
+                        MessageBox.Show("Login successful!");
+                        var myForm = new Dashboard();
+                        myForm.Show();
+                        this.Hide();
+                        return;
+                    }
+                //if((rowUsername==username) && (rowPassword==password))
+                   // Console.WriteLine(username + " " + password);
+
+                //userCredentials.Add(rowUsername, rowPassword);
             }
 
-            // if the loop finishes without finding a match, show an error message
-            MessageBox.Show("Invalid username or password.");
+            /*foreach (KeyValuePair<string, string> entry in userCredentials)
+            {
+                Console.WriteLine("{0}: {1}", entry.Key, entry.Value);
+            }*/
 
-        }
+            // Close the Excel file
+            wb.Close();
+            app.Quit();
+
+           // Console.WriteLine(userCredentials[username]);
+
+            // Check if the entered username and password match any in the dictionary
+           /* if (userCredentials[username] == password)
+            {
+                MessageBox.Show("Login successful!");
+                var myForm = new Dashboard();
+                myForm.Show();
+                this.Hide();
+                return;
+            }*/
+
+            // If no match is found, show an error message
+            MessageBox.Show("Invalid username or password.");
+    }
 
         private void Label2_Click(object sender, EventArgs e)
         {
@@ -210,5 +233,17 @@ namespace BirdManagment
             return Regex.IsMatch(password, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,10}$");
         }
 
+        public int CompareStrings(string str1, string str2)
+        {
+            // Compare the two strings using the string.Compare() method
+            // The third parameter "true" specifies that the comparison should ignore case sensitivity
+            int result = string.Compare(str1, str2, true);
+
+            // The return value will be:
+            //     0 if the strings are equal
+            //     a negative integer if str1 is less than str2
+            //     a positive integer if str1 is greater than str2
+            return result;
+        }
     }
 }
