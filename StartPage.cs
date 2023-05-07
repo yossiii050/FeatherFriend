@@ -19,7 +19,7 @@ namespace BirdManagment
 
         private void LOGIN_Click(object sender, EventArgs e)
         {
-            var myForm = new Login();
+            var myForm = new Login_v1();
             myForm.Show();
             this.Hide();
 
@@ -27,7 +27,7 @@ namespace BirdManagment
 
         private void REGISTER_Click(object sender, EventArgs e)
         {
-            var myForm = new Dashboard();
+            var myForm = new Regiter_v1();
             myForm.Show();
             this.Hide();
 

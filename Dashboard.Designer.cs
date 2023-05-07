@@ -137,7 +137,7 @@
             this.button3.Text = "Add Cage";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button2
             // 
@@ -153,7 +153,7 @@
             this.button2.Text = "Add Bird";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button1
             // 
@@ -169,8 +169,8 @@
             this.button1.Text = "Dashboard";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.Leave += new System.EventHandler(this.button1_Leave);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.button1.Leave += new System.EventHandler(this.Button1_Leave);
             // 
             // pictureBox1
             // 
