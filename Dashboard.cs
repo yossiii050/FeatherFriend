@@ -36,6 +36,13 @@ namespace BirdManagment
             panel3.Top = button1.Top;
             panel3.Left = button1.Left;
             button1.BackColor = Color.FromArgb(46, 51, 73);
+
+            lblTitle.Text = "Dashboard";
+            this.frmLoader.Controls.Clear();
+            frmDash frmDash_Vrb = new frmDash() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmDash_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.frmLoader.Controls.Add(frmDash_Vrb);
+            frmDash_Vrb.Show();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -49,6 +56,13 @@ namespace BirdManagment
             panel3.Top = button1.Top;
             panel3.Left = button1.Left;
             button1.BackColor=Color.FromArgb(46,51,73);
+
+            lblTitle.Text = "Dashboard";
+            this.frmLoader.Controls.Clear();
+            frmDash frmDash_Vrb = new frmDash() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmDash_Vrb.FormBorderStyle=FormBorderStyle.None;
+            this.frmLoader.Controls.Add(frmDash_Vrb);
+            frmDash_Vrb.Show();
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -57,6 +71,13 @@ namespace BirdManagment
             panel3.Top = button2.Top;
             panel3.Left = button2.Left;
             button2.BackColor = Color.FromArgb(46, 51, 73);
+
+            lblTitle.Text = "Add Bird";
+            this.frmLoader.Controls.Clear();
+            frmAddBird frmAddBird_Vrb = new frmAddBird() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmAddBird_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.frmLoader.Controls.Add(frmAddBird_Vrb);
+            frmAddBird_Vrb.Show();
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -65,6 +86,14 @@ namespace BirdManagment
             panel3.Top = button3.Top;
             panel3.Left = button3.Left;
             button3.BackColor = Color.FromArgb(46, 51, 73);
+
+
+            lblTitle.Text = "Add Cage";
+            this.frmLoader.Controls.Clear();
+            frmAddCage frmAddCage_Vrb = new frmAddCage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmAddCage_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.frmLoader.Controls.Add(frmAddCage_Vrb);
+            frmAddCage_Vrb.Show();
         }
 
         private void Button1_Leave(object sender, EventArgs e)

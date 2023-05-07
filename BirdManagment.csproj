@@ -91,6 +91,24 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddBird.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddBird.Designer.cs">
+      <DependentUpon>frmAddBird.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddCage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCage.Designer.cs">
+      <DependentUpon>frmAddCage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDash.Designer.cs">
+      <DependentUpon>frmDash.cs</DependentUpon>  
+	</Compile>
     <Compile Include="Login_v1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +132,15 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddBird.resx">
+      <DependentUpon>frmAddBird.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddCage.resx">
+      <DependentUpon>frmAddCage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDash.resx">
+      <DependentUpon>frmDash.cs</DependentUpon>
+    </EmbeddedResource>      
     <EmbeddedResource Include="Login_v1.resx">
       <DependentUpon>Login_v1.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +190,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addB.png" />
+    <Content Include="birdC.png" />
     <Content Include="home.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
