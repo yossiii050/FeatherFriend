@@ -42,7 +42,7 @@ namespace BirdManagment
         private void Login_v1_Load(object sender, EventArgs e)
         {
             // Load the Excel file containing the usernames and passwords
-            string excelFilePath = @"C:\FetherFriendDocuments\TestWorkbook.xlsx";
+            string excelFilePath = @"C:\FeatherFriendDocuments\TestWorkbook.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(excelFilePath);
             Worksheet ws = wb.Worksheets["sheet1"];
@@ -147,7 +147,7 @@ namespace BirdManagment
 
 
             // load the Excel file
-            string filePath = @"C:\FetherFriendDocuments\NewWorkbook.xlsx";
+            string filePath = @"C:\FeatherFriendDocuments\TestWorkbook.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(filePath);
             Worksheet ws = wb.Worksheets["sheet1"];
