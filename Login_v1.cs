@@ -43,7 +43,7 @@ namespace BirdManagment
         private void Login_v1_Load(object sender, EventArgs e)
         {
             // Load the Excel file containing the usernames and passwords
-            string excelFilePath = @"C:\FeatherFriendDocuments\TestWorkbook.xlsx";
+            string excelFilePath = @"C:\Users\yossi\source\repos\yossiii050\FeatherFriend\DataBased\UsersDB.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(excelFilePath);
             Worksheet ws = wb.Worksheets["sheet1"];
@@ -148,7 +148,7 @@ namespace BirdManagment
 
 
             // load the Excel file
-            string filePath = @"C:\FeatherFriendDocuments\TestWorkbook.xlsx";
+            string filePath = @"C:\Users\yossi\source\repos\yossiii050\FeatherFriend\DataBased\UsersDB.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(filePath);
             Worksheet ws = wb.Worksheets["sheet1"];
@@ -165,7 +165,7 @@ namespace BirdManagment
                     if (CompareStrings(rowPassword, password) == 0)
                     {
                         MessageBox.Show("Login successful!");
-                        var myForm = new Dashboard();
+                        var myForm = new Dashboard(rowUsername);
                         myForm.Show();
                         this.Hide();
                         return;

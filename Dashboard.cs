@@ -28,7 +28,7 @@ namespace BirdManagment
        int nHeightEllipse
 
     );
-        public Dashboard()
+        public Dashboard(String rowUsername)
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
@@ -36,7 +36,7 @@ namespace BirdManagment
             panel3.Top = button1.Top;
             panel3.Left = button1.Left;
             button1.BackColor = Color.FromArgb(46, 51, 73);
-
+            label1.Text=rowUsername;
             lblTitle.Text = "Dashboard";
             this.frmLoader.Controls.Clear();
             frmDash frmDash_Vrb = new frmDash() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -109,6 +109,9 @@ namespace BirdManagment
             button3.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-      
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -113,7 +113,7 @@ namespace BirdManagment
             // Check if the username already exists in the Excel file
             Application app = new Application();
             app.Visible = false;
-            Workbook wb = app.Workbooks.Open(@"C:\FeatherFriendDocuments\TestWorkbook.xlsx");
+            Workbook wb = app.Workbooks.Open(@"C:\Users\yossi\source\repos\yossiii050\FeatherFriend\DataBased\UsersDB.xlsx");
             Worksheet ws = wb.Worksheets["sheet1"];
 
             int lastRow = ws.Cells.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
@@ -173,7 +173,7 @@ namespace BirdManagment
             MessageBox.Show("User registered successfully!");
             
             
-            var myForm = new Dashboard();
+            var myForm = new Dashboard(username);
             myForm.Show();
             this.Hide();
 
