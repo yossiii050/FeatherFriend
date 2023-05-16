@@ -21,6 +21,7 @@ namespace BirdManagment
         public Login_v1()
         {
             InitializeComponent();
+
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace BirdManagment
         private void Login_v1_Load(object sender, EventArgs e)
         {
             // Load the Excel file containing the usernames and passwords
-            string excelFilePath = @"C:\Users\yossi\source\repos\yossiii050\FeatherFriend\DataBased\UsersDB.xlsx";
+            string excelFilePath = @"C:\FeatherFriend\DataBased\UsersDB.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(excelFilePath);
             Worksheet ws = wb.Worksheets["sheet1"];
@@ -58,10 +59,20 @@ namespace BirdManagment
                 userCredentials.Add(username, password);
             }
 
+           /** wb.Close();
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
+            wb=null;
+            app.Quit();
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+            app= null;
+
             // Close the Excel file
-           // wb.Close();
-           // app.Quit();
-        }
+            // wb.Close();
+            // app.Quit();
+        **/
+            }
 
         //private void btnLogin_Click(object sender, EventArgs e)
        // {
@@ -148,7 +159,7 @@ namespace BirdManagment
 
 
             // load the Excel file
-            string filePath = @"C:\Users\yossi\source\repos\yossiii050\FeatherFriend\DataBased\UsersDB.xlsx";
+            string filePath = @"C:\FeatherFriend\DataBased\UsersDB.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(filePath);
             Worksheet ws = wb.Worksheets["sheet1"];
@@ -168,6 +179,17 @@ namespace BirdManagment
                         var myForm = new Dashboard(rowUsername);
                         myForm.Show();
                         this.Hide();
+                        wb.Close();
+
+                        System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
+                        wb=null;
+                        app.Quit();
+
+                        System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                        app= null;
+
+                        System.GC.Collect();
+                        System.GC.WaitForPendingFinalizers();
                         return;
                     }
                 //if((rowUsername==username) && (rowPassword==password))
@@ -183,19 +205,25 @@ namespace BirdManagment
 
             // Close the Excel file
             wb.Close();
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
+            wb=null;
             app.Quit();
 
-           // Console.WriteLine(userCredentials[username]);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+            app= null;
+
+            // Console.WriteLine(userCredentials[username]);
 
             // Check if the entered username and password match any in the dictionary
-           /* if (userCredentials[username] == password)
-            {
-                MessageBox.Show("Login successful!");
-                var myForm = new Dashboard();
-                myForm.Show();
-                this.Hide();
-                return;
-            }*/
+            /* if (userCredentials[username] == password)
+             {
+                 MessageBox.Show("Login successful!");
+                 var myForm = new Dashboard();
+                 myForm.Show();
+                 this.Hide();
+                 return;
+             }*/
 
             // If no match is found, show an error message
             MessageBox.Show("Invalid username or password.");

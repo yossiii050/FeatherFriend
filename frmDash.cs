@@ -16,10 +16,9 @@ namespace BirdManagment
         public frmDash()
         {
             InitializeComponent();
-            string filePath = @"C:\Users\yossi\source\repos\yossiii050\FeatherFriend\DataBased\CageDB.xlsx";
+            string filePath = @"C:\FeatherFriend\DataBased\CageDB.xlsx";
             LoadExcelData(filePath);
-            //string filePath2 = @"C:\Users\yossi\source\repos\yossiii050\FeatherFriend\DataBased\BirdDB.xlsx";
-            //LoadExcelData(filePath2,8);
+            
         }
         private void LoadExcelData(string filePath)
         {
@@ -60,13 +59,16 @@ namespace BirdManagment
             worksheet = null;
             workbook = null;
             excelApp = null;
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
-        private void frmDash_Load(object sender, EventArgs e)
+        /*private void frmDash_Load(object sender, EventArgs e)
         {
-            string filePath = @"C:\Users\yossi\source\repos\yossiii050\FeatherFriend\DataBased\CageDB.xlsx";
+            string filePath = @"C:\FeatherFriend\DataBased\CageDB.xlsx";
             LoadExcelData(filePath);
-        }
+        }*/
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
