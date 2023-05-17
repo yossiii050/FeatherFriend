@@ -44,8 +44,8 @@ namespace BirdManagment
                     comboBoxMom.Items.Add(id);
                 }
             }
-            
-            
+
+
             wb2.Close();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wb2);
             ws2=null;
@@ -61,10 +61,10 @@ namespace BirdManagment
                 string CageIds = Convert.ToString(wsCage.Cells[row, 1].Value);
 
                 comboBoxCage.Items.Add(CageIds);
-                
+
             }
 
-            
+
             wbCage.Close();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
             wbCage=null;
@@ -91,18 +91,20 @@ namespace BirdManagment
 
         private void add_btn_Click(object sender, EventArgs e)
         {
-            double birdid ;
+            double birdid;
             string spec = comboBoxSpec.Text;
             string subspec = comboBoxSubSpec.Text;
             string gen = comboBoxGend.Text;
-            string date = dateTimePicker1.Text;
+            string date = dateTimePicker1.Value.ToString("dd/MM/yyyy"); ;
             string cageid = comboBoxCage.Text;
             string momid = comboBoxMom.Text;
             string dadid = comboBoxDad.Text;
-            string momHeadcolor="";
-            string dadHeadcolor="";
-
-
+            string momHeadcolor = "";
+            string dadHeadcolor = "";
+            string momBreastcolor = "";
+            string dadBreastcolor = "";
+            string momBodytcolor = "";
+            string dadBodycolor = "";
             if (!double.TryParse(serial.Text, out birdid))
             {
                 MessageBox.Show("Invalid bird ID. Please use only numbers.", "Error 305");
@@ -128,20 +130,30 @@ namespace BirdManagment
                 MessageBox.Show("Dad not selected.", "Error 206");
                 return;
             }
-            if(IsBirdIdUsed(birdid,momid,dadid,ref momHeadcolor, ref dadHeadcolor))
+            if (IsBirdIdUsed(birdid, momid, dadid, ref momHeadcolor, ref dadHeadcolor, ref momBreastcolor, ref dadBreastcolor, ref momBodytcolor, ref dadBodycolor))
             {
                 MessageBox.Show("Bird ID already exists. Please choose a different ID.", "Error 202");
                 return;
             }
-            
+
             Application app = new Application();
 
             Workbook wb = app.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx");
             Worksheet ws = wb.Worksheets["sheet1"];
 
-            string HeadColor = GeneticCalc(momHeadcolor, dadHeadcolor, gen);
-            
-            headcolorBird.Text = HeadColor;
+            string BabyHeadColor = "";
+            string BabyBreastColor = "";
+            string BabyBodyColor = "";
+            GeneticCalc(momHeadcolor, dadHeadcolor, momBreastcolor, dadBreastcolor, momBodytcolor, dadBodycolor, gen, ref BabyHeadColor, ref BabyBreastColor, ref BabyBodyColor);
+
+            headcolorBird.Text = BabyHeadColor;
+            breastcolorBird.Text = BabyBreastColor;
+            bodycolorBird.Text = BabyBodyColor;
+            //format for image path
+            // Gender+Headcolor+BodyColor+BreastColot
+
+            pictureBox1.Image=Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\"+gen+BabyHeadColor+".jpg");
+
             int row = 2;
             while (ws.Cells[row, 1].Value != null)
             {
@@ -155,8 +167,9 @@ namespace BirdManagment
             ws.Cells[row, 6].Value = momid;
             ws.Cells[row, 7].Value = dadid;
             ws.Cells[row, 8].Value = date;
-            ws.Cells[row, 9].Value = HeadColor;
-
+            ws.Cells[row, 9].Value = BabyHeadColor;
+            ws.Cells[row, 10].Value = BabyBreastColor;
+            ws.Cells[row, 11].Value = BabyBodyColor;
             wb.Save();
 
             wb.Close();
@@ -174,7 +187,7 @@ namespace BirdManagment
             System.GC.WaitForPendingFinalizers();
         }
 
-        
+
 
         private void comboBoxSpec_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -193,7 +206,7 @@ namespace BirdManagment
                 comboBoxSubSpec.Items.Add("East Europe");
                 comboBoxSubSpec.Items.Add("Western Europe");
             }
-            else if(comboBoxSpec.SelectedIndex == 2)
+            else if (comboBoxSpec.SelectedIndex == 2)
             {
                 comboBoxSubSpec.Items.Clear();
                 comboBoxSubSpec.Text = "Central Australia";
@@ -202,12 +215,12 @@ namespace BirdManagment
             }
         }
 
-        private static bool IsBirdIdUsed(double birdid, string momid, string dadid, ref string momcolor, ref string dadcolor)
+        private static bool IsBirdIdUsed(double birdid, string momid, string dadid, ref string momHeadcolorcur, ref string dadHeadcolorcur, ref string momBreastcolorcur, ref string dadBreastcolorcur, ref string momBodycolorcur, ref string dadBodycolorcur)
         {
             Application app1 = new Application();
             Workbook wb1 = app1.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx", ReadOnly: true);
             Worksheet ws1 = wb1.Worksheets["sheet1"];
-            
+
             int row = 2;
             while (ws1.Cells[row, 1].Value != null)
             {
@@ -221,20 +234,28 @@ namespace BirdManagment
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(app1);
                     wb1=null;
                     app1=null;
-                    
+
                     return true;
                 }
 
                 if (existingBirdId.ToString() == momid)
                 {
                     string momheadcolor = ws1.Cells[row, 9].Value;
-                    momcolor=momheadcolor;
+                    string mombreastcolor = ws1.Cells[row, 10].Value;
+                    string mombodycolor = ws1.Cells[row, 11].Value;
+                    momHeadcolorcur=momheadcolor;
+                    momBreastcolorcur=mombreastcolor;
+                    momBodycolorcur=mombodycolor;
                 }
 
                 if (existingBirdId.ToString() == dadid)
                 {
                     string dadheadcolor = ws1.Cells[row, 9].Value;
-                    dadcolor=dadheadcolor;
+                    string dadbreastcolor = ws1.Cells[row, 10].Value;
+                    string dadbodycolor = ws1.Cells[row, 11].Value;
+                    dadHeadcolorcur=dadheadcolor;
+                    dadBreastcolorcur=dadbreastcolor;
+                    dadBodycolorcur=dadbodycolor;
                 }
                 row++;
             }
@@ -249,12 +270,14 @@ namespace BirdManagment
             return false;
         }
 
-        private string GeneticCalc(string mom, string dad,string gend)
+
+
+        private void GeneticCalc(string Headmom, string Headdad, string Breastmom, string Breastdad, string Bodymom, string Bodydad, string gend, ref string BabyHeadColor, ref string BabyBreastColor, ref string BabyBodyColor)
         {
             Application app = new Application();
             Workbook colordwb = app.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdColorGenetica.xlsx", ReadOnly: true);
             Worksheet colorws = colordwb.Worksheets["sheet1"];
-            int genderCp=0;
+            int genderCp = 0;
             if (gend == "Male")
                 genderCp=4;
             if (gend == "Female")
@@ -263,25 +286,64 @@ namespace BirdManagment
             int row = 2;
             while (row <= 5)
             {
-                string dadheadc= Convert.ToString(colorws.Cells[row, 2].Value);
-                string momheadc= Convert.ToString(colorws.Cells[row, 3].Value);
-                
-                if (mom==momheadc && dad==dadheadc)
+                string dadheadc = Convert.ToString(colorws.Cells[row, 2].Value);
+                string mombheadc = Convert.ToString(colorws.Cells[row, 3].Value);
+
+                if (Headmom==mombheadc && Headdad==dadheadc)
                 {
-                    return Convert.ToString(colorws.Cells[row, genderCp].Value);
+                    string temphead = Convert.ToString(colorws.Cells[row, genderCp].Value);
+                    BabyHeadColor=temphead;
+                    System.Console.WriteLine(BabyHeadColor);
+
                 }
-                    
                 row++;
             }
+            System.Console.WriteLine(row);
+            while (row <= 14)
+            {
+                string dadbreastc = Convert.ToString(colorws.Cells[row, 2].Value);
+                string mombreastc = Convert.ToString(colorws.Cells[row, 3].Value);
+                if (Breastmom==mombreastc && Breastdad==dadbreastc)
+                {
+                    string tempbreast = Convert.ToString(colorws.Cells[row, genderCp].Value);
+                    BabyBreastColor=tempbreast;
+                    System.Console.WriteLine(BabyBreastColor);
+                }
+
+                row++;
+            }
+
+            System.Console.WriteLine(row);
+            while (row <= 25)
+            {
+                string dadbodyc = Convert.ToString(colorws.Cells[row, 2].Value);
+                string mombodyc = Convert.ToString(colorws.Cells[row, 3].Value);
+
+                if (Bodymom==mombodyc && Bodydad==dadbodyc)
+                {
+                    string tempbreast = Convert.ToString(colorws.Cells[row, genderCp].Value);
+                    BabyBodyColor=tempbreast;
+                    System.Console.WriteLine(BabyBodyColor);
+                }
+
+                row++;
+            }
+            System.Console.WriteLine(row);
             colordwb.Close();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(colordwb);
+            //System.Runtime.InteropServices.Marshal.ReleaseComObject(colordwb);
             colordwb=null;
 
             app.Quit();
             app=null;
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+            //System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
             colorws=null;
-            return "";
+
+            }
+
+        private void breastcolorBird_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
-}
+    }
+

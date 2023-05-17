@@ -47,7 +47,7 @@ namespace BirdManagment
 
             // Bind the DataTable to the DataGridView
 
-                dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = dt;
 
 
             // Clean up Excel objects
@@ -72,7 +72,7 @@ namespace BirdManagment
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
     }
 

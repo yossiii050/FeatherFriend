@@ -47,6 +47,12 @@
             this.comboBoxCage = new System.Windows.Forms.ComboBox();
             this.labelHeadcolor = new System.Windows.Forms.Label();
             this.headcolorBird = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.breastcolorBird = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.bodycolorBird = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // serial
@@ -62,6 +68,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "d";
             this.dateTimePicker1.Location = new System.Drawing.Point(133, 229);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(206, 20);
@@ -243,6 +250,7 @@
             // comboBoxCage
             // 
             this.comboBoxCage.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.comboBoxCage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCage.FormattingEnabled = true;
             this.comboBoxCage.Location = new System.Drawing.Point(372, 52);
             this.comboBoxCage.Name = "comboBoxCage";
@@ -267,11 +275,68 @@
             this.headcolorBird.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.headcolorBird.Enabled = false;
             this.headcolorBird.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headcolorBird.Location = new System.Drawing.Point(448, 268);
+            this.headcolorBird.Location = new System.Drawing.Point(456, 268);
             this.headcolorBird.Name = "headcolorBird";
             this.headcolorBird.Size = new System.Drawing.Size(70, 22);
             this.headcolorBird.TabIndex = 28;
             this.headcolorBird.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(432, 183);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(110, 66);
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label1.Location = new System.Drawing.Point(354, 298);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 20);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Bearst Color";
+            // 
+            // breastcolorBird
+            // 
+            this.breastcolorBird.AcceptsTab = true;
+            this.breastcolorBird.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.breastcolorBird.Enabled = false;
+            this.breastcolorBird.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.breastcolorBird.Location = new System.Drawing.Point(456, 296);
+            this.breastcolorBird.Name = "breastcolorBird";
+            this.breastcolorBird.Size = new System.Drawing.Size(70, 22);
+            this.breastcolorBird.TabIndex = 31;
+            this.breastcolorBird.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.breastcolorBird.TextChanged += new System.EventHandler(this.breastcolorBird_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label10.Location = new System.Drawing.Point(354, 326);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 20);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Body Color";
+            // 
+            // bodycolorBird
+            // 
+            this.bodycolorBird.AcceptsTab = true;
+            this.bodycolorBird.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.bodycolorBird.Enabled = false;
+            this.bodycolorBird.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bodycolorBird.Location = new System.Drawing.Point(456, 324);
+            this.bodycolorBird.Name = "bodycolorBird";
+            this.bodycolorBird.Size = new System.Drawing.Size(70, 22);
+            this.bodycolorBird.TabIndex = 33;
+            this.bodycolorBird.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmAddBird
             // 
@@ -279,6 +344,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(585, 398);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.bodycolorBird);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.breastcolorBird);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelHeadcolor);
             this.Controls.Add(this.headcolorBird);
             this.Controls.Add(this.comboBoxCage);
@@ -301,6 +371,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddBird";
             this.Text = "frmAddBird";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,5 +398,10 @@
         private System.Windows.Forms.ComboBox comboBoxCage;
         private System.Windows.Forms.Label labelHeadcolor;
         private System.Windows.Forms.TextBox headcolorBird;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox breastcolorBird;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox bodycolorBird;
     }
 }
