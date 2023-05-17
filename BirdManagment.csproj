@@ -74,6 +74,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -103,12 +104,30 @@
     <Compile Include="frmAddCage.Designer.cs">
       <DependentUpon>frmAddCage.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBirdInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBirdInfo.Designer.cs">
+      <DependentUpon>frmBirdInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchCage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchCage.Designer.cs">
+      <DependentUpon>frmSearchCage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchBird.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchBird.Designer.cs">
+      <DependentUpon>frmSearchBird.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDash.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDash.Designer.cs">
-      <DependentUpon>frmDash.cs</DependentUpon>  
-	</Compile>
+      <DependentUpon>frmDash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login_v1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,9 +157,18 @@
     <EmbeddedResource Include="frmAddCage.resx">
       <DependentUpon>frmAddCage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBirdInfo.resx">
+      <DependentUpon>frmBirdInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchCage.resx">
+      <DependentUpon>frmSearchCage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchBird.resx">
+      <DependentUpon>frmSearchBird.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDash.resx">
       <DependentUpon>frmDash.cs</DependentUpon>
-    </EmbeddedResource>      
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_v1.resx">
       <DependentUpon>Login_v1.cs</DependentUpon>
     </EmbeddedResource>

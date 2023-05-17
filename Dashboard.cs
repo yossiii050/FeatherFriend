@@ -113,5 +113,53 @@ namespace BirdManagment
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel3.Height = button4.Height;
+            panel3.Top = button4.Top;
+            panel3.Left = button3.Left;
+            button4.BackColor = Color.FromArgb(46, 51, 73);
+
+
+            lblTitle.Text = "Search Bird";
+            this.frmLoader.Controls.Clear();
+            frmSearchBird frmSearchBird_Vrb = new frmSearchBird() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmSearchBird_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.frmLoader.Controls.Add(frmSearchBird_Vrb);
+            frmSearchBird_Vrb.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            panel3.Height = button5.Height;
+            panel3.Top = button5.Top;
+            panel3.Left = button5.Left;
+            button5.BackColor = Color.FromArgb(46, 51, 73);
+
+
+            lblTitle.Text = "Search Cage";
+            this.frmLoader.Controls.Clear();
+            frmSearchCage frmSearchCage_Vrb = new frmSearchCage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmSearchCage_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.frmLoader.Controls.Add(frmSearchCage_Vrb);
+            frmSearchCage_Vrb.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            panel3.Height = button5.Height;
+            panel3.Top = button5.Top;
+            panel3.Left = button5.Left;
+            button5.BackColor = Color.FromArgb(46, 51, 73);
+
+
+            lblTitle.Text = "Bird info";
+            this.frmLoader.Controls.Clear();
+            frmBirdInfo frmBirdInfo_Vrb = new frmBirdInfo() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmBirdInfo_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.frmLoader.Controls.Add(frmBirdInfo_Vrb);
+            frmBirdInfo_Vrb.Show();
+        }
     }
 }
