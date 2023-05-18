@@ -46,7 +46,7 @@ namespace BirdManagment
 
             }
         }
-
+        
         private void TxtRegisterConfirmPW_TextChanged(object sender, EventArgs e)
         {
 
