@@ -59,19 +59,7 @@ namespace BirdManagment
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
-            // Application app = new Application();
-            // app.Visible = true;
-            // Workbook wb = app.Workbooks.Open(@"C:\FetherFriendDocuments\TestWorkbook.xlsx");
-            // Worksheet ws= wb.Worksheets["sheet1"]; //declare worksheet object
-            // ws.Range["A1"].Value = "Username"; //change the value of oen cell
-            // ws.Range["B1"].Value = "Password"; //change the value of oen cell
-
-            //ws.Range["A1:A3"].Value = "Testing";//write the samr data to multiple cells
-
-            //string cellData = "" + ws.Range["A2"].Value;
-
-            //wb.SaveAs(@"C:\FetherFriendDocuments\TestWorkbook.xlsx");
-
+            
             string username = txtRegisterUsername.Text;
             string password = txtRegisterPassword.Text;
             string confirmPW = txtRegisterConfirmPW.Text;
@@ -216,7 +204,7 @@ namespace BirdManagment
            
         }
 
-        private bool IsUsernameValid(string username)
+        public bool IsUsernameValid(string username)
         {
             // Use regular expressions to check if the username contains between 6 and 8 characters, with at most 2 digits and all the rest letters
             return Regex.IsMatch(username, @"^[a-zA-Z]{4}[0-9]{0,2}$");
