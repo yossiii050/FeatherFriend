@@ -40,8 +40,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtRegisterConfirmPW = new System.Windows.Forms.TextBox();
-            this.idTxt = new System.Windows.Forms.TextBox();
-            this.idLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRegister
@@ -53,7 +51,7 @@
             this.btnRegister.Location = new System.Drawing.Point(61, 415);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(216, 43);
-            this.btnRegister.TabIndex = 4;
+            this.btnRegister.TabIndex = 17;
             this.btnRegister.Text = "REGISTER";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
@@ -63,9 +61,9 @@
             this.chkBxShowPW.AutoSize = true;
             this.chkBxShowPW.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkBxShowPW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkBxShowPW.Location = new System.Drawing.Point(58, 372);
+            this.chkBxShowPW.Location = new System.Drawing.Point(61, 373);
             this.chkBxShowPW.Name = "chkBxShowPW";
-            this.chkBxShowPW.Size = new System.Drawing.Size(151, 27);
+            this.chkBxShowPW.Size = new System.Drawing.Size(187, 34);
             this.chkBxShowPW.TabIndex = 16;
             this.chkBxShowPW.Text = "Show Password";
             this.chkBxShowPW.UseVisualStyleBackColor = true;
@@ -76,20 +74,20 @@
             this.txtRegisterPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtRegisterPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRegisterPassword.Font = new System.Drawing.Font("MS UI Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegisterPassword.Location = new System.Drawing.Point(58, 257);
+            this.txtRegisterPassword.Location = new System.Drawing.Point(61, 247);
             this.txtRegisterPassword.Multiline = true;
             this.txtRegisterPassword.Name = "txtRegisterPassword";
             this.txtRegisterPassword.PasswordChar = '•';
             this.txtRegisterPassword.Size = new System.Drawing.Size(216, 28);
-            this.txtRegisterPassword.TabIndex = 2;
+            this.txtRegisterPassword.TabIndex = 13;
             this.txtRegisterPassword.TextChanged += new System.EventHandler(this.TxtRegisterPassword_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 227);
+            this.label3.Location = new System.Drawing.Point(57, 221);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 23);
+            this.label3.Size = new System.Drawing.Size(105, 30);
             this.label3.TabIndex = 12;
             this.label3.Text = "Password";
             // 
@@ -98,18 +96,18 @@
             this.txtRegisterUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtRegisterUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRegisterUsername.Font = new System.Drawing.Font("MS UI Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegisterUsername.Location = new System.Drawing.Point(58, 127);
+            this.txtRegisterUsername.Location = new System.Drawing.Point(61, 177);
             this.txtRegisterUsername.Multiline = true;
             this.txtRegisterUsername.Name = "txtRegisterUsername";
             this.txtRegisterUsername.Size = new System.Drawing.Size(216, 28);
-            this.txtRegisterUsername.TabIndex = 0;
+            this.txtRegisterUsername.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 97);
+            this.label2.Location = new System.Drawing.Point(57, 151);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
+            this.label2.Size = new System.Drawing.Size(110, 30);
             this.label2.TabIndex = 10;
             this.label2.Text = "Username";
             // 
@@ -118,9 +116,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.label1.Location = new System.Drawing.Point(88, 22);
+            this.label1.Location = new System.Drawing.Point(88, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 33);
+            this.label1.Size = new System.Drawing.Size(226, 40);
             this.label1.TabIndex = 9;
             this.label1.Text = "Get Started";
             // 
@@ -133,7 +131,7 @@
             this.btnClear.Location = new System.Drawing.Point(61, 473);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(216, 43);
-            this.btnClear.TabIndex = 5;
+            this.btnClear.TabIndex = 18;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
@@ -143,7 +141,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(67, 541);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(215, 23);
+            this.label5.Size = new System.Drawing.Size(266, 30);
             this.label5.TabIndex = 19;
             this.label5.Text = "Already have an Account?";
             // 
@@ -153,7 +151,7 @@
             this.button2.Location = new System.Drawing.Point(109, 567);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 26);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 20;
             this.button2.Text = "back to LOGIN";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
@@ -161,9 +159,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 292);
+            this.label4.Location = new System.Drawing.Point(57, 300);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 23);
+            this.label4.Size = new System.Drawing.Size(191, 30);
             this.label4.TabIndex = 14;
             this.label4.Text = "Confirm Password";
             // 
@@ -172,43 +170,21 @@
             this.txtRegisterConfirmPW.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.txtRegisterConfirmPW.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRegisterConfirmPW.Font = new System.Drawing.Font("MS UI Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegisterConfirmPW.Location = new System.Drawing.Point(58, 322);
+            this.txtRegisterConfirmPW.Location = new System.Drawing.Point(61, 326);
             this.txtRegisterConfirmPW.Multiline = true;
             this.txtRegisterConfirmPW.Name = "txtRegisterConfirmPW";
             this.txtRegisterConfirmPW.PasswordChar = '•';
             this.txtRegisterConfirmPW.Size = new System.Drawing.Size(216, 28);
-            this.txtRegisterConfirmPW.TabIndex = 3;
+            this.txtRegisterConfirmPW.TabIndex = 15;
             this.txtRegisterConfirmPW.TextChanged += new System.EventHandler(this.TxtRegisterConfirmPW_TextChanged);
-            // 
-            // idTxt
-            // 
-            this.idTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
-            this.idTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.idTxt.Font = new System.Drawing.Font("MS UI Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idTxt.Location = new System.Drawing.Point(58, 192);
-            this.idTxt.Multiline = true;
-            this.idTxt.Name = "idTxt";
-            this.idTxt.Size = new System.Drawing.Size(216, 28);
-            this.idTxt.TabIndex = 1;
-            // 
-            // idLbl
-            // 
-            this.idLbl.AutoSize = true;
-            this.idLbl.Location = new System.Drawing.Point(58, 162);
-            this.idLbl.Name = "idLbl";
-            this.idLbl.Size = new System.Drawing.Size(28, 23);
-            this.idLbl.TabIndex = 21;
-            this.idLbl.Text = "ID";
             // 
             // Regiter_v1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(344, 607);
-            this.Controls.Add(this.idTxt);
-            this.Controls.Add(this.idLbl);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnClear);
@@ -249,7 +225,5 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtRegisterConfirmPW;
-        private System.Windows.Forms.TextBox idTxt;
-        private System.Windows.Forms.Label idLbl;
     }
 }

@@ -25,7 +25,7 @@ namespace BirdManagment
             txtRegisterUsername.Text = "";
             txtRegisterPassword.Text = "";
             txtRegisterConfirmPW.Text = "";
-            idTxt.Text = "";
+
         }
 
         private void Regiter_v1_Load(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace BirdManagment
         {
             if (chkBxShowPW.Checked) {
                 txtRegisterPassword.PasswordChar = '\0';
-                txtRegisterConfirmPW.PasswordChar = '\0'; 
+                txtRegisterConfirmPW.PasswordChar = '\0'; ;
             }
             else
             {
@@ -75,7 +75,6 @@ namespace BirdManagment
             string username = txtRegisterUsername.Text;
             string password = txtRegisterPassword.Text;
             string confirmPW = txtRegisterConfirmPW.Text;
-            string ID = idTxt.Text;
 
             // check if the username and password are not empty
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -90,8 +89,6 @@ namespace BirdManagment
                 MessageBox.Show("Username must contain between 6 and 8 characters.");
                 return;
             }
-
-
 
             int digitCount = 0;
             foreach (char c in username)
@@ -130,14 +127,6 @@ namespace BirdManagment
                     app.Quit();
                     return;
                 }
-                string existingID = ws.Cells[i, 3].Value.ToString();
-                if (existingID == ID)
-                {
-                    MessageBox.Show("ID already exists. Please choose a different username.");
-                    wb.Close(false);
-                    app.Quit();
-                    return;
-                }
             }
 
             /*
@@ -170,7 +159,6 @@ namespace BirdManagment
             // Write the username and password to the worksheet
             ws.Cells[row, 1].Value = username;
             ws.Cells[row, 2].Value = password;
-            ws.Cells[row, 3].Value = ID;
 
             // Save and close the workbook
             // Save the workbook to a different location and with a different name
@@ -189,20 +177,6 @@ namespace BirdManagment
             myForm.Show();
             this.Hide();
 
-            ////////////////////////////////////////////////////
-            ///wb.Close();
-
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
-            wb = null;
-
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(ws);
-            ws = null;
-
-            app.Quit();
-            System.GC.Collect();
-            System.GC.WaitForPendingFinalizers();
-
-
 
 
         }
@@ -212,8 +186,6 @@ namespace BirdManagment
             var myForm = new Login_v1();
             myForm.Show();
             this.Hide();
-
-           
         }
 
         private bool IsUsernameValid(string username)
