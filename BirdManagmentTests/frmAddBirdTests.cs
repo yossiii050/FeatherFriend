@@ -1,17 +1,16 @@
-﻿//using BirdManagment;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BirdManagment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BirdManagment;
 namespace BirdManagment.Tests
 {
 
     [TestClass()]
-    public class FrmAddBirdTests
+    public class frmAddBirdTests
     {
         [TestMethod()]
         public void HeadGeneticCalcTest()
@@ -19,7 +18,8 @@ namespace BirdManagment.Tests
             BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird();
 
             //start
-            
+            string headmom = "Red";
+            string headdad = "Red";
             string breastmom = "BreastMomColor";
             string breastdad = "BreastDadColor";
             string bodymom = "BodyMomColor";
@@ -66,7 +66,8 @@ namespace BirdManagment.Tests
 
             string headmom = "HeadMomColor";
             string headdad = "HeadDadColor";
-            
+            string breastmom = "BreastMomColor";
+            string breastdad = "BreastDadColor";
             string bodymom = "BodyMomColor";
             string bodydad = "BodyDadColor";
             string gender = "Male";
@@ -144,7 +145,8 @@ namespace BirdManagment.Tests
             string headdad = "HeadDadColor";
             string breastmom = "BreastMomColor";
             string breastdad = "BreastDadColor";
-            
+            string bodymom = "BodyMomColor";
+            string bodydad = "BodyDadColor";
             string gender = "Male";
 
             string BabyHeadColor = "";
