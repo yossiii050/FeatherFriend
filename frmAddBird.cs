@@ -215,7 +215,7 @@ namespace BirdManagment
             }
         }
 
-        private static bool IsBirdIdUsed(double birdid, string momid, string dadid, ref string momHeadcolorcur, ref string dadHeadcolorcur, ref string momBreastcolorcur, ref string dadBreastcolorcur, ref string momBodycolorcur, ref string dadBodycolorcur)
+        public static bool IsBirdIdUsed(double birdid, string momid, string dadid, ref string momHeadcolorcur, ref string dadHeadcolorcur, ref string momBreastcolorcur, ref string dadBreastcolorcur, ref string momBodycolorcur, ref string dadBodycolorcur)
         {
             Application app1 = new Application();
             Workbook wb1 = app1.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx", ReadOnly: true);
@@ -272,7 +272,7 @@ namespace BirdManagment
 
 
 
-        private void GeneticCalc(string Headmom, string Headdad, string Breastmom, string Breastdad, string Bodymom, string Bodydad, string gend, ref string BabyHeadColor, ref string BabyBreastColor, ref string BabyBodyColor)
+        public void GeneticCalc(string Headmom, string Headdad, string Breastmom, string Breastdad, string Bodymom, string Bodydad, string gend, ref string BabyHeadColor, ref string BabyBreastColor, ref string BabyBodyColor)
         {
             Application app = new Application();
             Workbook colordwb = app.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdColorGenetica.xlsx", ReadOnly: true);
@@ -338,7 +338,8 @@ namespace BirdManagment
             //System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
             colorws=null;
 
-            }
+           
+        }
 
         private void breastcolorBird_TextChanged(object sender, EventArgs e)
         {
