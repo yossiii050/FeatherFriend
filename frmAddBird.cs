@@ -151,9 +151,10 @@ namespace BirdManagment
             bodycolorBird.Text = BabyBodyColor;
             //format for image path
             // Gender+Headcolor+BodyColor+BreastColot
-
-            pictureBox1.Image=Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\"+gen+BabyHeadColor+".jpg");
-
+            try { }
+            catch { }
+            pictureBox1.Image=Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\"+gen+BabyHeadColor+ BabyBreastColor+ BabyBodyColor+".png");
+            //pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\MaleRedPurpleGreen.png");
             int row = 2;
             while (ws.Cells[row, 1].Value != null)
             {
