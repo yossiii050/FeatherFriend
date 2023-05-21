@@ -314,7 +314,7 @@ namespace BirdManagment
             }
 
             System.Console.WriteLine(row);
-            while (row <= 25)
+            while (row <= 29)
             {
                 string dadbodyc = Convert.ToString(colorws.Cells[row, 2].Value);
                 string mombodyc = Convert.ToString(colorws.Cells[row, 3].Value);

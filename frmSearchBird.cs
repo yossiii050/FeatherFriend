@@ -75,32 +75,46 @@ namespace BirdManagment
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string searchBy=comboBox1.SelectedItem.ToString();
-            string searchTerm = textBox1.Text;
-
-            DataTable filteredTable = originalTable.Clone();
-
-            foreach (DataRow row in originalTable.Rows)
+            
+            if (comboBox1.SelectedItem == null)
             {
-                if (string.Equals(searchBy, "Gender")){
-                    if (string.Equals(row["Gender"].ToString(), searchTerm, StringComparison.OrdinalIgnoreCase))
-                        filteredTable.ImportRow(row);
+                MessageBox.Show("Please choose search option.");
+            }
+            else
+            {
+                string searchBy = comboBox1.SelectedItem.ToString();
+                string searchTerm = textBox1.Text;
+
+                DataTable filteredTable = originalTable.Clone();
+
+                foreach (DataRow row in originalTable.Rows)
+                {
+                    if (string.Equals(searchBy, "Gender"))
+                    {
+                        if (string.Equals(row["Gender"].ToString(), searchTerm, StringComparison.OrdinalIgnoreCase))
+                            filteredTable.ImportRow(row);
+                    }
+                    else
+                    {
+                        if (row[searchBy].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                            filteredTable.ImportRow(row);
+                    }
+
                 }
-                else{
-                    if (row[searchBy].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
-                        filteredTable.ImportRow(row);
+                if (filteredTable.Rows.Count > 1)
+                {
+                    DataRow[] results = filteredTable.Select($"[BirdID] = '{searchTerm}%'");
+                    filteredTable = results.Any() ? results.CopyToDataTable() : filteredTable;
                 }
+                DataView dv = filteredTable.DefaultView;
+                dv.Sort = "BirdID ASC";
+                filteredTable = dv.ToTable();
+                dataGridView1.DataSource = filteredTable;
                 
             }
-            if (filteredTable.Rows.Count > 1)
-            {
-                DataRow[] results = filteredTable.Select($"[BirdID] = '{searchTerm}%'");
-                filteredTable = results.Any() ? results.CopyToDataTable() : filteredTable;
-            }
-            DataView dv = filteredTable.DefaultView;
-            dv.Sort = "BirdID ASC";
-            filteredTable = dv.ToTable();
-            dataGridView1.DataSource = filteredTable;
+               
+            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
