@@ -21,7 +21,7 @@ namespace BirdManagment
             InitializeComponent();
         }
 
-        private void add_btn_Click(object sender, EventArgs e)
+        public void add_btn_Click(object sender, EventArgs e)
         {
             string cageid = serial.Text;
             string len = length.Text;
@@ -98,7 +98,7 @@ namespace BirdManagment
             //this.Hide();
         }
 
-        private bool IsCageIdUsed(string cageId)
+        public bool IsCageIdUsed(string cageId)
         {
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx",ReadOnly: true);
@@ -133,7 +133,7 @@ namespace BirdManagment
             return false;
         }
 
-        private bool IsValidDimension(string dimension)
+        public bool IsValidDimension(string dimension)
         {
             double value;
             return double.TryParse(dimension, out value);
