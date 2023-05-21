@@ -15,9 +15,10 @@ namespace BirdManagment
 {
     public partial class frmBirdInfo : Form
     {
-      
+     
         public frmBirdInfo()
         {
+           
             InitializeComponent();
             Application app2 = new Application();
             Workbook wbBird = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx", ReadOnly: true);
@@ -151,7 +152,19 @@ namespace BirdManagment
             app2 = null;
         }
 
-       
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Collect data from BirdInfo form
+            string cageID = textBox6.Text;
+            string spec = textBox2.Text;
+            string subspec = textBox3.Text;
+            string thisBirdID = comboBox1.Text;
+
+            // Access Dashboard form and reload frmloader
+            Dashboard dashboard = (Dashboard)this.ParentForm;
+            dashboard.ReloadFrmLoaderForNewBird(new frmAddBird(thisBirdID,spec,subspec,cageID));
+
+        }
     }
 
 }

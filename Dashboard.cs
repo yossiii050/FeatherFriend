@@ -74,7 +74,7 @@ namespace BirdManagment
 
             lblTitle.Text = "Add Bird";
             this.frmLoader.Controls.Clear();
-            frmAddBird frmAddBird_Vrb = new frmAddBird() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmAddBird frmAddBird_Vrb = new frmAddBird("1","1","1","1") { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmAddBird_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.frmLoader.Controls.Add(frmAddBird_Vrb);
             frmAddBird_Vrb.Show();
@@ -161,6 +161,19 @@ namespace BirdManagment
             frmCageInfo_Vrb.Show();
         }
 
+        public void ReloadFrmLoaderForNewBird(Form form)
+        {
+          
+            lblTitle.Text = "Add Bird";
+        
+            this.frmLoader.Controls.Clear();
+
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            this.frmLoader.Controls.Add(form);
+            form.Show();
+        }
         private void Button1_Leave(object sender, EventArgs e)
         {
             button1.BackColor = Color.FromArgb(24, 30, 54);
