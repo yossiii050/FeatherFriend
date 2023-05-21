@@ -189,7 +189,7 @@ namespace BirdManagment
 
 
 
-        private void comboBoxSpec_SelectedIndexChanged(object sender, EventArgs e)
+        public void comboBoxSpec_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxSpec.SelectedIndex == 0)
             {
