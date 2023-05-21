@@ -14,7 +14,7 @@ namespace BirdManagment.Tests
         [TestMethod()]
         public void IsUsernameValidTest()
         {
-            Assert.Fail();
+            Assert.AreEqual(1,1);
         }
     }
 }

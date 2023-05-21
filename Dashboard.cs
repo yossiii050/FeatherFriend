@@ -95,25 +95,6 @@ namespace BirdManagment
             this.frmLoader.Controls.Add(frmAddCage_Vrb);
             frmAddCage_Vrb.Show();
         }
-
-        private void Button1_Leave(object sender, EventArgs e)
-        {
-            button1.BackColor = Color.FromArgb(24, 30, 54);
-        }
-        private void Button2_Leave(object sender, EventArgs e)
-        {
-            button2.BackColor = Color.FromArgb(24, 30, 54);
-        }
-        private void Button3_Leave(object sender, EventArgs e)
-        {
-            button3.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             panel3.Height = button4.Height;
@@ -148,10 +129,11 @@ namespace BirdManagment
 
         private void button6_Click(object sender, EventArgs e)
         {
-            panel3.Height = button5.Height;
-            panel3.Top = button5.Top;
-            panel3.Left = button5.Left;
-            button5.BackColor = Color.FromArgb(46, 51, 73);
+            
+            panel3.Height = button6.Height;
+            panel3.Top = button6.Top;
+            panel3.Left = button6.Left;
+            button6.BackColor = Color.FromArgb(46, 51, 73);
 
 
             lblTitle.Text = "Bird info";
@@ -160,6 +142,53 @@ namespace BirdManagment
             frmBirdInfo_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.frmLoader.Controls.Add(frmBirdInfo_Vrb);
             frmBirdInfo_Vrb.Show();
+            
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            panel3.Height = button7.Height;
+            panel3.Top = button7.Top;
+            panel3.Left = button7.Left;
+            button7.BackColor = Color.FromArgb(46, 51, 73);
+
+
+            lblTitle.Text = "Cage info";
+            this.frmLoader.Controls.Clear();
+            frmCageInfo frmCageInfo_Vrb = new frmCageInfo() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmCageInfo_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.frmLoader.Controls.Add(frmCageInfo_Vrb);
+            frmCageInfo_Vrb.Show();
+        }
+
+        private void Button1_Leave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.FromArgb(24, 30, 54);
+        }
+        private void Button2_Leave(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.FromArgb(24, 30, 54);
+        }
+        private void Button3_Leave(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.FromArgb(24, 30, 54);
+        }
+        private void Button4_Leave(object sender, EventArgs e)
+        {
+            button4.BackColor = Color.FromArgb(24, 30, 54);
+        }
+        private void Button5_Leave(object sender, EventArgs e)
+        {
+            button5.BackColor = Color.FromArgb(24, 30, 54);
+        }
+        private void Button6_Leave(object sender, EventArgs e)
+        {
+            button6.BackColor = Color.FromArgb(24, 30, 54);
+        }
+        private void Button7_Leave(object sender, EventArgs e)
+        {
+            button7.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
     }
 }

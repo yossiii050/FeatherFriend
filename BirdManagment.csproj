@@ -116,6 +116,12 @@
     <Compile Include="frmBirdInfo.Designer.cs">
       <DependentUpon>frmBirdInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCageInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCageInfo.Designer.cs">
+      <DependentUpon>frmCageInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSearchCage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBirdInfo.resx">
       <DependentUpon>frmBirdInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCageInfo.resx">
+      <DependentUpon>frmCageInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearchCage.resx">
       <DependentUpon>frmSearchCage.cs</DependentUpon>
