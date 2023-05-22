@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -151,9 +152,14 @@ namespace BirdManagment
             bodycolorBird.Text = BabyBodyColor;
             //format for image path
             // Gender+Headcolor+BodyColor+BreastColot
-            try { }
-            catch { }
-            pictureBox1.Image=Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\"+gen+BabyHeadColor+ BabyBreastColor+ BabyBodyColor+".png");
+            try
+            {
+                pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\" + gen + BabyHeadColor + BabyBreastColor + BabyBodyColor + ".png");
+            }
+            catch (FileNotFoundException e1) {
+                pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\approve.png");
+                Console.WriteLine("Catch in the add Bird Picture");
+            }
             //pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\MaleRedPurpleGreen.png");
             int row = 2;
             while (ws.Cells[row, 1].Value != null)
@@ -315,7 +321,7 @@ namespace BirdManagment
             }
 
             System.Console.WriteLine(row);
-            while (row <= 25)
+            while (row <= 29)
             {
                 string dadbodyc = Convert.ToString(colorws.Cells[row, 2].Value);
                 string mombodyc = Convert.ToString(colorws.Cells[row, 3].Value);
