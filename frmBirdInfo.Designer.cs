@@ -54,6 +54,7 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -304,12 +305,23 @@
             this.comboBox2.TabIndex = 57;
             this.comboBox2.Visible = false;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(68, 395);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(173, 40);
+            this.button4.TabIndex = 58;
+            this.button4.Text = "Add Fledgling";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // frmBirdInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(780, 490);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.textBox10);
@@ -374,5 +386,6 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button button4;
     }
 }
