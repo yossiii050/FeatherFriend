@@ -34,31 +34,31 @@ namespace BirdManagment
             
             if (cageid.All(char.IsLetterOrDigit)==false || string.IsNullOrEmpty(cageid))
             {
-                MessageBox.Show("Invalid cage ID. Please use only letters or numbers.", "Error 301");
+                MessageBox.Show("Invalid cage ID. Please use only letters or numbers.", "Exception 301", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             
             if (!IsValidDimension(len))
             {
-                MessageBox.Show("Invalid length. Please enter numeric values.", "Exception 302");
+                MessageBox.Show("Invalid length. Please enter numeric values.", "Exception 302", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!IsValidDimension(wid))
             {
-                MessageBox.Show("Invalid width. Please enter numeric values.", "Exception 303");
+                MessageBox.Show("Invalid width. Please enter numeric values.", "Exception 303", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!IsValidDimension(hei))
             {
-                MessageBox.Show("Invalid height. Please enter numeric values.", "Exception 304");
+                MessageBox.Show("Invalid height. Please enter numeric values.", "Exception 304", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (IsCageIdUsed(cageid))
             {
-                MessageBox.Show("Cage ID already exists. Please choose a different ID.", "Error 201");
+                MessageBox.Show("Cage ID already exists. Please choose a different ID.", "Error 201", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Application app = new Application();
@@ -84,7 +84,7 @@ namespace BirdManagment
             ws1=null;
             
             
-            MessageBox.Show("Cage add successfully!", "Success 101");
+            MessageBox.Show("Cage add successfully!", "Success 101", MessageBoxButtons.OK, MessageBoxIcon.Information);
             app.Quit();
 
 
