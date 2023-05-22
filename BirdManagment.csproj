@@ -238,6 +238,7 @@
     <None Include="DataBased\birdphoto\cage.gif" />
     <None Include="DataBased\birdphoto\quest.png" />
     <None Include="DataBased\birdphoto\birds.gif" />
+    <None Include="DataBased\birdphoto\cage-unscreen.gif" />
     <Content Include="home.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
