@@ -130,13 +130,16 @@
   <data name="cage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\DataBased\birdphoto\cage.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="birds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\DataBased\birdphoto\birds.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="addB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\addB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="birds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\DataBased\birdphoto\birds.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cage-unscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\DataBased\birdphoto\cage-unscreen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

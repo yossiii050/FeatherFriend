@@ -188,8 +188,7 @@ namespace BirdManagment
                 pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\" + gen + BabyHeadColor + BabyBreastColor + BabyBodyColor + ".png");
             }
             catch (FileNotFoundException e1) {
-                pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\checkmark.gif");
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\approve.png");
                 Console.WriteLine("Catch in the add Bird Picture");
             }
             //pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\MaleRedPurpleGreen.png");
