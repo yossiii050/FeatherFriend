@@ -28,8 +28,7 @@ namespace BirdManagment
             string wid = width.Text;
             string hei = height.Text;
             string mat = comboBox1.Text;
-            pictureBox1.Visible = true;
-            pictureBox2.Visible = false;
+            
 
             
             if (cageid.All(char.IsLetterOrDigit)==false || string.IsNullOrEmpty(cageid))
@@ -65,7 +64,8 @@ namespace BirdManagment
             Workbook wb1 = app.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx");
             Worksheet ws1 = wb1.ActiveSheet;
 
-
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = false;
 
             int row = 2;
             while (ws1.Cells[row, 1].Value != null)
