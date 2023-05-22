@@ -35,35 +35,15 @@ namespace BirdManagment
             {
                 int id = Convert.ToInt32(ws2.Cells[row, 1].Value);
                 string gender = Convert.ToString(ws2.Cells[row, 5].Value);
-                if (!id_f.Equals(""))
+
+                if (gender == "Male")
                 {
-                    if (id == int.Parse(id_f))
-                    {
-                        if (gender == "Male")
-                        {
-                            comboBoxDad.Items.Add(id);
-                            comboBoxDad.SelectedIndex = 1;
-                            comboBoxMom.SelectedIndex = 0;
-                        }
-                        else if (gender == "Female")
-                        {
-                            comboBoxMom.Items.Add(id);
-                            comboBoxMom.SelectedIndex = 1;
-                            comboBoxDad.SelectedIndex = 0;
-                        }
-                    }
+                    comboBoxDad.Items.Add(id);
                 }
-                else
+                else if (gender == "Female")
                 {
-                    if (gender == "Male")
-                    {
-                        comboBoxDad.Items.Add(id);
-                    }
-                    else if (gender == "Female")
-                    {
-                        comboBoxMom.Items.Add(id);
-                    }
-                }     
+                    comboBoxMom.Items.Add(id);
+                }
             }
 
             if(comboBoxDad.SelectedIndex == 1 || comboBoxMom.SelectedIndex == 1)
