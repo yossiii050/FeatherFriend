@@ -16,7 +16,7 @@ namespace BirdManagment.Tests
         [TestMethod()]
         public void HeadGeneticCalcTest()
         {
-            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird();
+            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird("","","","");
 
             //start
             string headmom = "Red";
@@ -62,7 +62,7 @@ namespace BirdManagment.Tests
         [TestMethod()]
         public void BreastGeneticCalcTest()
         {
-            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird();
+            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird("", "", "", "");
 
 
             string headmom = "HeadMomColor";
@@ -139,7 +139,7 @@ namespace BirdManagment.Tests
         [TestMethod()]
         public void BodyGeneticCalcTest()
         {
-            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird();
+            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird("", "", "", "");
 
 
             string headmom = "HeadMomColor";
@@ -229,7 +229,7 @@ namespace BirdManagment.Tests
         public void ComboBoxSpecSelectedIndexChanged_Test()
         {
             // Arrange
-            var form = new BirdManagment.frmAddBird();
+            var form = new BirdManagment.frmAddBird("", "", "", "");
 
             // Act
             form.comboBoxSpec.SelectedIndex = 0;
