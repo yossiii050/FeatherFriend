@@ -187,7 +187,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BirdManagment.Properties.Resources.cage_unscreen;
+            this.pictureBox1.Image = global::BirdManagment.Properties.Resources.cage;
             this.pictureBox1.Location = new System.Drawing.Point(452, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(425, 433);
