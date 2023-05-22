@@ -61,7 +61,7 @@
             this.serial.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.serial.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.serial.Location = new System.Drawing.Point(189, 65);
-            this.serial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.serial.Margin = new System.Windows.Forms.Padding(4);
             this.serial.Name = "serial";
             this.serial.Size = new System.Drawing.Size(160, 26);
             this.serial.TabIndex = 0;
@@ -71,7 +71,7 @@
             // 
             this.dateTimePicker1.CustomFormat = "d";
             this.dateTimePicker1.Location = new System.Drawing.Point(177, 282);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(273, 22);
             this.dateTimePicker1.TabIndex = 8;
@@ -81,8 +81,8 @@
             // add_btn
             // 
             this.add_btn.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_btn.Location = new System.Drawing.Point(325, 356);
-            this.add_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.add_btn.Location = new System.Drawing.Point(310, 373);
+            this.add_btn.Margin = new System.Windows.Forms.Padding(4);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(100, 28);
             this.add_btn.TabIndex = 9;
@@ -95,7 +95,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label5.Location = new System.Drawing.Point(387, 113);
+            this.label5.Location = new System.Drawing.Point(484, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 25);
             this.label5.TabIndex = 18;
@@ -106,7 +106,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label3.Location = new System.Drawing.Point(387, 64);
+            this.label3.Location = new System.Drawing.Point(484, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 25);
             this.label3.TabIndex = 17;
@@ -151,7 +151,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label7.Location = new System.Drawing.Point(387, 162);
+            this.label7.Location = new System.Drawing.Point(484, 162);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 25);
             this.label7.TabIndex = 19;
@@ -185,8 +185,8 @@
             this.comboBoxMom.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.comboBoxMom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMom.FormattingEnabled = true;
-            this.comboBoxMom.Location = new System.Drawing.Point(496, 117);
-            this.comboBoxMom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxMom.Location = new System.Drawing.Point(593, 117);
+            this.comboBoxMom.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxMom.Name = "comboBoxMom";
             this.comboBoxMom.Size = new System.Drawing.Size(160, 24);
             this.comboBoxMom.TabIndex = 22;
@@ -196,8 +196,8 @@
             this.comboBoxDad.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.comboBoxDad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDad.FormattingEnabled = true;
-            this.comboBoxDad.Location = new System.Drawing.Point(496, 165);
-            this.comboBoxDad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDad.Location = new System.Drawing.Point(593, 165);
+            this.comboBoxDad.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDad.Name = "comboBoxDad";
             this.comboBoxDad.Size = new System.Drawing.Size(160, 24);
             this.comboBoxDad.TabIndex = 23;
@@ -211,7 +211,7 @@
             "European Gouldian",
             "Australian Gouldian"});
             this.comboBoxSpec.Location = new System.Drawing.Point(189, 113);
-            this.comboBoxSpec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxSpec.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSpec.Name = "comboBoxSpec";
             this.comboBoxSpec.Size = new System.Drawing.Size(160, 24);
             this.comboBoxSpec.TabIndex = 24;
@@ -227,7 +227,7 @@
             "Central America",
             "South America"});
             this.comboBoxSubSpec.Location = new System.Drawing.Point(189, 172);
-            this.comboBoxSubSpec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxSubSpec.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSubSpec.Name = "comboBoxSubSpec";
             this.comboBoxSubSpec.Size = new System.Drawing.Size(160, 24);
             this.comboBoxSubSpec.TabIndex = 25;
@@ -241,7 +241,7 @@
             "Male",
             "Female"});
             this.comboBoxGend.Location = new System.Drawing.Point(189, 224);
-            this.comboBoxGend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxGend.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxGend.Name = "comboBoxGend";
             this.comboBoxGend.Size = new System.Drawing.Size(160, 24);
             this.comboBoxGend.TabIndex = 26;
@@ -252,8 +252,8 @@
             this.comboBoxCage.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.comboBoxCage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCage.FormattingEnabled = true;
-            this.comboBoxCage.Location = new System.Drawing.Point(496, 64);
-            this.comboBoxCage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxCage.Location = new System.Drawing.Point(593, 64);
+            this.comboBoxCage.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxCage.Name = "comboBoxCage";
             this.comboBoxCage.Size = new System.Drawing.Size(160, 24);
             this.comboBoxCage.TabIndex = 27;
@@ -263,7 +263,7 @@
             this.labelHeadcolor.AutoSize = true;
             this.labelHeadcolor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.labelHeadcolor.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.labelHeadcolor.Location = new System.Drawing.Point(472, 332);
+            this.labelHeadcolor.Location = new System.Drawing.Point(503, 332);
             this.labelHeadcolor.Name = "labelHeadcolor";
             this.labelHeadcolor.Size = new System.Drawing.Size(111, 25);
             this.labelHeadcolor.TabIndex = 29;
@@ -275,8 +275,8 @@
             this.headcolorBird.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.headcolorBird.Enabled = false;
             this.headcolorBird.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headcolorBird.Location = new System.Drawing.Point(608, 330);
-            this.headcolorBird.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headcolorBird.Location = new System.Drawing.Point(639, 330);
+            this.headcolorBird.Margin = new System.Windows.Forms.Padding(4);
             this.headcolorBird.Name = "headcolorBird";
             this.headcolorBird.Size = new System.Drawing.Size(92, 26);
             this.headcolorBird.TabIndex = 28;
@@ -284,8 +284,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(576, 225);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(607, 225);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(147, 81);
             this.pictureBox1.TabIndex = 30;
@@ -296,7 +296,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label1.Location = new System.Drawing.Point(472, 367);
+            this.label1.Location = new System.Drawing.Point(503, 367);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 25);
             this.label1.TabIndex = 32;
@@ -308,8 +308,8 @@
             this.breastcolorBird.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.breastcolorBird.Enabled = false;
             this.breastcolorBird.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breastcolorBird.Location = new System.Drawing.Point(608, 364);
-            this.breastcolorBird.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.breastcolorBird.Location = new System.Drawing.Point(639, 364);
+            this.breastcolorBird.Margin = new System.Windows.Forms.Padding(4);
             this.breastcolorBird.Name = "breastcolorBird";
             this.breastcolorBird.Size = new System.Drawing.Size(92, 26);
             this.breastcolorBird.TabIndex = 31;
@@ -321,7 +321,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label10.Location = new System.Drawing.Point(472, 401);
+            this.label10.Location = new System.Drawing.Point(503, 401);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(109, 25);
             this.label10.TabIndex = 34;
@@ -333,8 +333,8 @@
             this.bodycolorBird.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.bodycolorBird.Enabled = false;
             this.bodycolorBird.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bodycolorBird.Location = new System.Drawing.Point(608, 399);
-            this.bodycolorBird.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bodycolorBird.Location = new System.Drawing.Point(639, 399);
+            this.bodycolorBird.Margin = new System.Windows.Forms.Padding(4);
             this.bodycolorBird.Name = "bodycolorBird";
             this.bodycolorBird.Size = new System.Drawing.Size(92, 26);
             this.bodycolorBird.TabIndex = 33;
@@ -344,8 +344,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(780, 490);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.ClientSize = new System.Drawing.Size(904, 490);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.bodycolorBird);
             this.Controls.Add(this.label1);
@@ -371,7 +371,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.serial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddBird";
             this.Text = "frmAddBird";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -395,8 +395,6 @@
         protected internal System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBoxMom;
         private System.Windows.Forms.ComboBox comboBoxDad;
-        private System.Windows.Forms.ComboBox comboBoxSpec;
-        private System.Windows.Forms.ComboBox comboBoxSubSpec;
         private System.Windows.Forms.ComboBox comboBoxGend;
         private System.Windows.Forms.ComboBox comboBoxCage;
         private System.Windows.Forms.Label labelHeadcolor;
@@ -406,5 +404,7 @@
         private System.Windows.Forms.TextBox breastcolorBird;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox bodycolorBird;
+        public System.Windows.Forms.ComboBox comboBoxSpec;
+        public System.Windows.Forms.ComboBox comboBoxSubSpec;
     }
 }

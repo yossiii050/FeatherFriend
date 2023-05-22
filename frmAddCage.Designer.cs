@@ -39,6 +39,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // width
@@ -46,10 +50,10 @@
             this.width.AcceptsTab = true;
             this.width.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.width.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.width.Location = new System.Drawing.Point(308, 162);
-            this.width.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.width.Location = new System.Drawing.Point(184, 163);
+            this.width.Margin = new System.Windows.Forms.Padding(4);
             this.width.Name = "width";
-            this.width.Size = new System.Drawing.Size(132, 26);
+            this.width.Size = new System.Drawing.Size(152, 26);
             this.width.TabIndex = 1;
             this.width.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -58,10 +62,10 @@
             this.length.AcceptsTab = true;
             this.length.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.length.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.length.Location = new System.Drawing.Point(308, 268);
-            this.length.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.length.Location = new System.Drawing.Point(184, 269);
+            this.length.Margin = new System.Windows.Forms.Padding(4);
             this.length.Name = "length";
-            this.length.Size = new System.Drawing.Size(132, 26);
+            this.length.Size = new System.Drawing.Size(152, 26);
             this.length.TabIndex = 3;
             this.length.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -70,10 +74,10 @@
             this.serial.AcceptsTab = true;
             this.serial.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.serial.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serial.Location = new System.Drawing.Point(308, 112);
-            this.serial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.serial.Location = new System.Drawing.Point(184, 113);
+            this.serial.Margin = new System.Windows.Forms.Padding(4);
             this.serial.Name = "serial";
-            this.serial.Size = new System.Drawing.Size(132, 26);
+            this.serial.Size = new System.Drawing.Size(152, 26);
             this.serial.TabIndex = 0;
             this.serial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -82,20 +86,20 @@
             this.height.AcceptsTab = true;
             this.height.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.height.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.height.Location = new System.Drawing.Point(308, 218);
-            this.height.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.height.Location = new System.Drawing.Point(184, 219);
+            this.height.Margin = new System.Windows.Forms.Padding(4);
             this.height.Name = "height";
-            this.height.Size = new System.Drawing.Size(132, 26);
+            this.height.Size = new System.Drawing.Size(152, 26);
             this.height.TabIndex = 2;
             this.height.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // add_btn
             // 
             this.add_btn.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_btn.Location = new System.Drawing.Point(308, 378);
-            this.add_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.add_btn.Location = new System.Drawing.Point(184, 379);
+            this.add_btn.Margin = new System.Windows.Forms.Padding(4);
             this.add_btn.Name = "add_btn";
-            this.add_btn.Size = new System.Drawing.Size(100, 28);
+            this.add_btn.Size = new System.Drawing.Size(120, 53);
             this.add_btn.TabIndex = 5;
             this.add_btn.Text = "ADD";
             this.add_btn.UseVisualStyleBackColor = true;
@@ -109,32 +113,30 @@
             "Plastic",
             "Metal",
             "Wood"});
-            this.comboBox1.Location = new System.Drawing.Point(308, 318);
+            this.comboBox1.Location = new System.Drawing.Point(184, 319);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(141, 24);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = "Plastic";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label1.Location = new System.Drawing.Point(185, 110);
+            this.label1.Location = new System.Drawing.Point(61, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Serial No.";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label2.Location = new System.Drawing.Point(185, 160);
+            this.label2.Location = new System.Drawing.Point(61, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 25);
             this.label2.TabIndex = 10;
@@ -145,7 +147,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label3.Location = new System.Drawing.Point(185, 266);
+            this.label3.Location = new System.Drawing.Point(61, 267);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 25);
             this.label3.TabIndex = 12;
@@ -156,7 +158,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label4.Location = new System.Drawing.Point(185, 217);
+            this.label4.Location = new System.Drawing.Point(61, 218);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 25);
             this.label4.TabIndex = 11;
@@ -167,18 +169,41 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label5.Location = new System.Drawing.Point(185, 318);
+            this.label5.Location = new System.Drawing.Point(61, 319);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 25);
             this.label5.TabIndex = 13;
             this.label5.Text = "Material";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BirdManagment.Properties.Resources.cage;
+            this.pictureBox1.Location = new System.Drawing.Point(486, 52);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(276, 380);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BirdManagment.Properties.Resources.quest;
+            this.pictureBox2.Location = new System.Drawing.Point(486, 52);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(276, 380);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
             // frmAddCage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(780, 490);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.ClientSize = new System.Drawing.Size(904, 490);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -191,9 +216,11 @@
             this.Controls.Add(this.length);
             this.Controls.Add(this.serial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddCage";
             this.Text = "frmAddCage";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +238,7 @@
         public System.Windows.Forms.TextBox height;
         public System.Windows.Forms.Button add_btn;
         public System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

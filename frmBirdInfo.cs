@@ -15,9 +15,10 @@ namespace BirdManagment
 {
     public partial class frmBirdInfo : Form
     {
-      
+     
         public frmBirdInfo()
         {
+           
             InitializeComponent();
             Application app2 = new Application();
             Workbook wbBird = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx", ReadOnly: true);
@@ -57,7 +58,7 @@ namespace BirdManagment
             Workbook wbBird = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx", ReadOnly: true);
             Worksheet wsBird = wbBird.Worksheets["sheet1"];
             Range usedRangeCage = wsBird.UsedRange;
-
+            string gend, head;
             int lastRowCage = usedRangeCage.Rows.Count;
             for (int row = 2; row <= lastRowCage; row++)
             {
@@ -74,10 +75,13 @@ namespace BirdManagment
                     textBox9.Text = Convert.ToString(wsBird.Cells[row, 9].Value);
                     textBox10.Text = Convert.ToString(wsBird.Cells[row, 10].Value);
                     textBox11.Text = Convert.ToString(wsBird.Cells[row, 11].Value);
+                    gend= Convert.ToString(wsBird.Cells[row, 5].Value);
+                    head = Convert.ToString(wsBird.Cells[row, 9].Value);
+                 //   pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\" + gend + head + ".jpg");
+
                 }
 
             }
-
 
             wbBird.Close();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wbBird);
@@ -151,7 +155,18 @@ namespace BirdManagment
             app2 = null;
         }
 
-       
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string cageID = textBox6.Text;
+            string spec = textBox2.Text;
+            string subspec = textBox3.Text;
+            string thisBirdID = comboBox1.Text;
+            Dashboard dashboard = (Dashboard)this.ParentForm;
+            dashboard.ReloadFrmLoaderForNewFled(new frmAddBird(thisBirdID,spec,subspec,cageID));
+
+        }
+
+        
     }
 
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BirdManagment;
+
 namespace BirdManagment.Tests
 {
 
@@ -15,7 +16,7 @@ namespace BirdManagment.Tests
         [TestMethod()]
         public void HeadGeneticCalcTest()
         {
-            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird();
+            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird("","","","");
 
             //start
             string headmom = "Red";
@@ -61,7 +62,7 @@ namespace BirdManagment.Tests
         [TestMethod()]
         public void BreastGeneticCalcTest()
         {
-            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird();
+            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird("", "", "", "");
 
 
             string headmom = "HeadMomColor";
@@ -138,7 +139,7 @@ namespace BirdManagment.Tests
         [TestMethod()]
         public void BodyGeneticCalcTest()
         {
-            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird();
+            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird("", "", "", "");
 
 
             string headmom = "HeadMomColor";
@@ -222,6 +223,44 @@ namespace BirdManagment.Tests
 
             frmAddBirdInstance.GeneticCalc(headmom, headdad, breastmom, breastdad, "Pastel", "Blue", gender, ref BabyHeadColor, ref BabyBreastColor, ref BabyBodyColor);
             Assert.AreEqual(BabyBodyColor, "Blue Pastel");
+        }
+
+        [TestMethod()]
+        public void ComboBoxSpecSelectedIndexChanged_Test()
+        {
+            // Arrange
+            var form = new BirdManagment.frmAddBird("", "", "", "");
+
+            // Act
+            form.comboBoxSpec.SelectedIndex = 0;
+            form.comboBoxSpec_SelectedIndexChanged(form.comboBoxSpec, EventArgs.Empty);
+
+            // Assert
+            Assert.AreEqual(3, form.comboBoxSubSpec.Items.Count);
+            Assert.AreEqual("North America", form.comboBoxSubSpec.Text);
+            NUnit.Framework.Assert.Contains("North America", form.comboBoxSubSpec.Items);
+            NUnit.Framework.Assert.Contains("Central America", form.comboBoxSubSpec.Items);
+            NUnit.Framework.Assert.Contains("South America", form.comboBoxSubSpec.Items);
+
+            // Act
+            form.comboBoxSpec.SelectedIndex = 1;
+            form.comboBoxSpec_SelectedIndexChanged(form.comboBoxSpec, EventArgs.Empty);
+
+            // Assert
+            Assert.AreEqual(2, form.comboBoxSubSpec.Items.Count);
+            NUnit.Framework.Assert.AreEqual("East Europe", form.comboBoxSubSpec.Text);
+            NUnit.Framework.Assert.Contains("East Europe", form.comboBoxSubSpec.Items);
+            NUnit.Framework.Assert.Contains("Western Europe", form.comboBoxSubSpec.Items);
+
+            // Act
+            form.comboBoxSpec.SelectedIndex = 2;
+            form.comboBoxSpec_SelectedIndexChanged(form.comboBoxSpec, EventArgs.Empty);
+
+            // Assert
+            Assert.AreEqual(2, form.comboBoxSubSpec.Items.Count);
+            NUnit.Framework.Assert.AreEqual("Central Australia", form.comboBoxSubSpec.Text);
+            NUnit.Framework.Assert.Contains("Central Australia", form.comboBoxSubSpec.Items);
+            NUnit.Framework.Assert.Contains("Coastal Cities", form.comboBoxSubSpec.Items);
         }
     }
 }
