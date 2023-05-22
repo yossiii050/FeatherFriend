@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -17,10 +18,11 @@ namespace BirdManagment
 {
     public partial class frmAddBird : Form
     {
-        public frmAddBird()
+        public frmAddBird(string id_f,string spec_f,string subspec_f,string cageId_f)
         {
             InitializeComponent();
-
+           
+           
             Application app2 = new Application();
 
             Workbook wb2 = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx", ReadOnly: true);
@@ -45,11 +47,29 @@ namespace BirdManagment
                 }
             }
 
+            if(comboBoxDad.SelectedIndex == 1 || comboBoxMom.SelectedIndex == 1)
+            {
+                for (int row = 2; row <= lastRow; row++)
+                {
+                    int id = Convert.ToInt32(ws2.Cells[row, 1].Value);
+                    string gender = Convert.ToString(ws2.Cells[row, 5].Value);
+                    if (comboBoxDad.SelectedIndex==1 && gender == "Female")
+                    {
+                        comboBoxMom.Items.Add(id);
+                    }
+                    if (comboBoxMom.SelectedIndex==1 && gender == "Male")
+                    {
+                        comboBoxDad.Items.Add(id);
+                    }
+
+                }
+            }
+                
 
             wb2.Close();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wb2);
-            ws2=null;
-            wb2=null;
+            ws2 = null;
+            wb2 = null;
 
             Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
             Worksheet wsCage = wbCage.Worksheets["sheet1"];
@@ -59,19 +79,31 @@ namespace BirdManagment
             for (int row = 2; row <= lastRowCage; row++)
             {
                 string CageIds = Convert.ToString(wsCage.Cells[row, 1].Value);
-
-                comboBoxCage.Items.Add(CageIds);
+                if (!id_f.Equals(""))
+                {
+                    if (CageIds == cageId_f)
+                    {
+                        comboBoxCage.Items.Add(CageIds);
+                        comboBoxCage.SelectedIndex = 0;
+                    }
+                }
+                else
+                {
+                    comboBoxCage.Items.Add(CageIds);
+                }
 
             }
 
 
             wbCage.Close();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
-            wbCage=null;
+            wbCage = null;
             wsCage = null;
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
+            
+           
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -151,9 +183,15 @@ namespace BirdManagment
             bodycolorBird.Text = BabyBodyColor;
             //format for image path
             // Gender+Headcolor+BodyColor+BreastColot
-
-            pictureBox1.Image=Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\"+gen+BabyHeadColor+".jpg");
-
+            try
+            {
+                pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\" + gen + BabyHeadColor + BabyBreastColor + BabyBodyColor + ".png");
+            }
+            catch (FileNotFoundException e1) {
+                pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\approve.png");
+                Console.WriteLine("Catch in the add Bird Picture");
+            }
+            //pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\MaleRedPurpleGreen.png");
             int row = 2;
             while (ws.Cells[row, 1].Value != null)
             {
@@ -189,7 +227,7 @@ namespace BirdManagment
 
 
 
-        private void comboBoxSpec_SelectedIndexChanged(object sender, EventArgs e)
+        public void comboBoxSpec_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxSpec.SelectedIndex == 0)
             {
@@ -314,7 +352,7 @@ namespace BirdManagment
             }
 
             System.Console.WriteLine(row);
-            while (row <= 25)
+            while (row <= 29)
             {
                 string dadbodyc = Convert.ToString(colorws.Cells[row, 2].Value);
                 string mombodyc = Convert.ToString(colorws.Cells[row, 3].Value);

@@ -28,7 +28,8 @@ namespace BirdManagment
             string wid = width.Text;
             string hei = height.Text;
             string mat = comboBox1.Text;
-            
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = false;
 
             
             if (cageid.All(char.IsLetterOrDigit)==false || string.IsNullOrEmpty(cageid))
@@ -140,14 +141,7 @@ namespace BirdManagment
         }
 
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

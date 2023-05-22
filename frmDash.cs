@@ -18,7 +18,9 @@ namespace BirdManagment
             InitializeComponent();
             string filePath = @"C:\FeatherFriend\DataBased\CageDB.xlsx";
             LoadExcelData(filePath);
-            
+            string filePath1 = @"C:\FeatherFriend\DataBased\BirdDB.xlsx";
+            LoadExcelData1(filePath1);
+
         }
         private void LoadExcelData(string filePath)
         {
@@ -63,6 +65,50 @@ namespace BirdManagment
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
         }
+        private void LoadExcelData1(string filePath)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
+            Excel.Worksheet worksheet = workbook.Worksheets["sheet1"];
+            Excel.Range range = worksheet.UsedRange;
+
+            // Get the data into a DataTable
+            DataTable dt = new DataTable();
+
+            for (int i = 1; i <= range.Columns.Count; i++)
+            {
+                dt.Columns.Add((range.Cells[1, i] as Excel.Range).Value2.ToString());
+            }
+
+            for (int row = 2; row <= range.Rows.Count; row++)
+            {
+                DataRow dr = dt.NewRow();
+                for (int col = 1; col <= range.Columns.Count; col++)
+                {
+                    dr[col - 1] = (range.Cells[row, col] as Excel.Range).Value2.ToString();
+                }
+                dt.Rows.Add(dr);
+            }
+
+            // Bind the DataTable to the DataGridView
+
+            dataGridView2.DataSource = dt;
+
+
+            // Clean up Excel objects
+            workbook.Close();
+            excelApp.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+            worksheet = null;
+            workbook = null;
+            excelApp = null;
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+        }
+
 
         /*private void frmDash_Load(object sender, EventArgs e)
         {
