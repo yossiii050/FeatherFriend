@@ -35,7 +35,7 @@ namespace BirdManagment
             panel3.Height = button1.Height;
             panel3.Top = button1.Top;
             panel3.Left = button1.Left;
-            button1.BackColor = Color.FromArgb(46, 51, 73);
+            button1.BackColor = Color.Thistle;
             label1.Text=rowUsername;
             lblTitle.Text = "Dashboard";
             this.frmLoader.Controls.Clear();
@@ -55,7 +55,13 @@ namespace BirdManagment
             panel3.Height = button1.Height;
             panel3.Top = button1.Top;
             panel3.Left = button1.Left;
-            button1.BackColor=Color.FromArgb(46,51,73);
+            button1.BackColor=Color.Thistle;
+            button2.BackColor = Color.White;
+            button3.BackColor = Color.White;
+            button4.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            button6.BackColor = Color.White;
+            button7.BackColor = Color.White;
 
             lblTitle.Text = "Dashboard";
             this.frmLoader.Controls.Clear();
@@ -70,7 +76,13 @@ namespace BirdManagment
             panel3.Height = button2.Height;
             panel3.Top = button2.Top;
             panel3.Left = button2.Left;
-            button2.BackColor = Color.FromArgb(46, 51, 73);
+            button2.BackColor = Color.Thistle;
+            button1.BackColor = Color.White;
+            button3.BackColor = Color.White;
+            button4.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            button6.BackColor = Color.White;
+            button7.BackColor = Color.White;
 
             lblTitle.Text = "Add Bird";
             this.frmLoader.Controls.Clear();
@@ -85,7 +97,13 @@ namespace BirdManagment
             panel3.Height = button3.Height;
             panel3.Top = button3.Top;
             panel3.Left = button3.Left;
-            button3.BackColor = Color.FromArgb(46, 51, 73);
+            button3.BackColor = Color.Thistle;
+            button2.BackColor = Color.White;
+            button1.BackColor = Color.White;
+            button4.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            button6.BackColor = Color.White;
+            button7.BackColor = Color.White;
 
 
             lblTitle.Text = "Add Cage";
@@ -100,7 +118,13 @@ namespace BirdManagment
             panel3.Height = button4.Height;
             panel3.Top = button4.Top;
             panel3.Left = button3.Left;
-            button4.BackColor = Color.FromArgb(46, 51, 73);
+            button4.BackColor = Color.Thistle;
+            button2.BackColor = Color.White;
+            button3.BackColor = Color.White;
+            button1.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            button6.BackColor = Color.White;
+            button7.BackColor = Color.White;
 
 
             lblTitle.Text = "Search Bird";
@@ -116,7 +140,13 @@ namespace BirdManagment
             panel3.Height = button5.Height;
             panel3.Top = button5.Top;
             panel3.Left = button5.Left;
-            button5.BackColor = Color.FromArgb(46, 51, 73);
+            button5.BackColor = Color.Thistle;
+            button2.BackColor = Color.White;
+            button3.BackColor = Color.White;
+            button4.BackColor = Color.White;
+            button1.BackColor = Color.White;
+            button6.BackColor = Color.White;
+            button7.BackColor = Color.White;
 
 
             lblTitle.Text = "Search Cage";
@@ -133,7 +163,13 @@ namespace BirdManagment
             panel3.Height = button6.Height;
             panel3.Top = button6.Top;
             panel3.Left = button6.Left;
-            button6.BackColor = Color.FromArgb(46, 51, 73);
+            button6.BackColor = Color.Thistle;
+            button2.BackColor = Color.White;
+            button3.BackColor = Color.White;
+            button4.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            button1.BackColor = Color.White;
+            button7.BackColor = Color.White;
 
 
             lblTitle.Text = "Bird info";
@@ -150,7 +186,13 @@ namespace BirdManagment
             panel3.Height = button7.Height;
             panel3.Top = button7.Top;
             panel3.Left = button7.Left;
-            button7.BackColor = Color.FromArgb(46, 51, 73);
+            button7.BackColor = Color.Thistle;
+            button2.BackColor = Color.White;
+            button3.BackColor = Color.White;
+            button4.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            button6.BackColor = Color.White;
+            button1.BackColor = Color.White;
 
 
             lblTitle.Text = "Cage info";
@@ -163,7 +205,13 @@ namespace BirdManagment
 
         public void ReloadFrmLoaderForNewFled(Form form)
         {
-            button2.BackColor = Color.FromArgb(24, 30, 54);
+            button2.BackColor = Color.Thistle;
+            button1.BackColor = Color.White;
+            button3.BackColor = Color.White;
+            button4.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            button6.BackColor = Color.White;
+            button7.BackColor = Color.White;
             lblTitle.Text = "Add Bird";
         
             this.frmLoader.Controls.Clear();
@@ -174,34 +222,51 @@ namespace BirdManagment
             this.frmLoader.Controls.Add(form);
             form.Show();
         }
+        
         private void Button1_Leave(object sender, EventArgs e)
         {
-            button1.BackColor = Color.FromArgb(24, 30, 54);
+            button1.BackColor = Color.Lavender;
         }
         private void Button2_Leave(object sender, EventArgs e)
         {
-            button2.BackColor = Color.FromArgb(24, 30, 54);
+            button2.BackColor = Color.Lavender;
         }
         private void Button3_Leave(object sender, EventArgs e)
         {
-            button3.BackColor = Color.FromArgb(24, 30, 54);
+            button3.BackColor = Color.Lavender;
         }
         private void Button4_Leave(object sender, EventArgs e)
         {
-            button4.BackColor = Color.FromArgb(24, 30, 54);
+            button4.BackColor = Color.Lavender;
         }
         private void Button5_Leave(object sender, EventArgs e)
         {
-            button5.BackColor = Color.FromArgb(24, 30, 54);
+            button5.BackColor = Color.Lavender;
         }
         private void Button6_Leave(object sender, EventArgs e)
         {
-            button6.BackColor = Color.FromArgb(24, 30, 54);
+            button6.BackColor = Color.Lavender;
         }
         private void Button7_Leave(object sender, EventArgs e)
         {
-            button7.BackColor = Color.FromArgb(24, 30, 54);
+            button7.BackColor = Color.Lavender;
         }
 
+        private void frmLoader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var myForm = new StartPage();
+            myForm.Show();
+            this.Close();
+        }
     }
 }

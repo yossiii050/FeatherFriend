@@ -60,12 +60,12 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(703, 351);
+            this.dataGridView1.Size = new System.Drawing.Size(833, 351);
             this.dataGridView1.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(617, 40);
+            this.button2.Location = new System.Drawing.Point(747, 40);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(118, 24);
             this.button2.TabIndex = 3;
@@ -91,8 +91,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(780, 490);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.ClientSize = new System.Drawing.Size(904, 490);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
