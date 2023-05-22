@@ -21,6 +21,9 @@ namespace BirdManagment
             string filePath1 = @"C:\FeatherFriend\DataBased\BirdDB.xlsx";
             LoadExcelData1(filePath1);
 
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+
         }
         private void LoadExcelData(string filePath)
         {
@@ -110,16 +113,7 @@ namespace BirdManagment
         }
 
 
-        /*private void frmDash_Load(object sender, EventArgs e)
-        {
-            string filePath = @"C:\FeatherFriend\DataBased\CageDB.xlsx";
-            LoadExcelData(filePath);
-        }*/
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
+        
     }
 
 }

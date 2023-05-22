@@ -137,6 +137,34 @@ namespace BirdManagement.Tests
             NUnit.Framework.Assert.IsFalse(result);
         }
 
+        [TestMethod()]
+        public void IsValidDimension_ZeroDimension_ReturnsFalse()
+        {
+            // Arrange
+            var form = new frmAddCage();
+            var invalidDimension = "0";
+
+            // Act
+            var result = form.IsValidDimension(invalidDimension);
+
+            // Assert
+            NUnit.Framework.Assert.IsFalse(result);
+        }
+
+        [TestMethod()]
+        public void IsValidDimension_NegativeDimension_ReturnsFalse()
+        {
+            // Arrange
+            var form = new frmAddCage();
+            var invalidDimension = "-5";
+
+            // Act
+            var result = form.IsValidDimension(invalidDimension);
+
+            // Assert
+            NUnit.Framework.Assert.IsFalse(result);
+        }
+
         private static class MessageBoxHelper
         {
             public static bool IsMessageBoxDisplayed(string message, string title)
