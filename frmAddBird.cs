@@ -139,32 +139,32 @@ namespace BirdManagment
             string dadBodycolor = "";
             if (!double.TryParse(serial.Text, out birdid))
             {
-                MessageBox.Show("Invalid bird ID. Please use only numbers.", "Error 305");
+                MessageBox.Show("Invalid bird ID. Please use only numbers.", "Exception 305", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (comboBoxCage.Items.Count == 0)
             {
-                MessageBox.Show("No available cage! Add a cage first", "Error 203");
+                MessageBox.Show("No available cage! Add a cage first", "Error 203", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (cageid=="")
             {
-                MessageBox.Show("Cage not selected.", "Error 204");
+                MessageBox.Show("Cage not selected.", "Error 204", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (momid=="")
             {
-                MessageBox.Show("Mom not selected.", "Error 205");
+                MessageBox.Show("Mom not selected.", "Error 205", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (dadid=="")
             {
-                MessageBox.Show("Dad not selected.", "Error 206");
+                MessageBox.Show("Dad not selected.", "Error 206", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (IsBirdIdUsed(birdid, momid, dadid, ref momHeadcolor, ref dadHeadcolor, ref momBreastcolor, ref dadBreastcolor, ref momBodytcolor, ref dadBodycolor))
             {
-                MessageBox.Show("Bird ID already exists. Please choose a different ID.", "Error 202");
+                MessageBox.Show("Bird ID already exists. Please choose a different ID.", "Error 202", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -213,7 +213,7 @@ namespace BirdManagment
 
             wb.Close();
             ws=null;
-            MessageBox.Show("Bird add successfully!", "Success 102");
+            MessageBox.Show("Bird add successfully!", "Success 102", MessageBoxButtons.OK, MessageBoxIcon.Information);
             app.Quit();
 
 

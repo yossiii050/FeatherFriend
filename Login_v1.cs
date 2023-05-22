@@ -114,14 +114,15 @@ namespace BirdManagment
             // check if the username and password are not empty
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please enter username and password.");
+               
+                MessageBox.Show("Empty fields! Please fill required fields.", "Exception 306", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Validate username
             if (username.Length < 6 || username.Length > 8)
             {
-                MessageBox.Show("Username must contain between 6 and 8 characters.");
+                MessageBox.Show("Username must contain between 6 and 8 characters.", "Exception 307", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -141,7 +142,7 @@ namespace BirdManagment
 
             if (digitCount > 2)
             {
-                MessageBox.Show("Username must contain at most 2 digits.");
+                MessageBox.Show("Username must contain at most 2 digits.", "Exception 308", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             /*
@@ -153,7 +154,7 @@ namespace BirdManagment
             */
             if (!IsPasswordValid(password))
             {
-                MessageBox.Show("Password must be between 8 and 10 characters, and contain at least one letter, one digit, and one special character.");
+                MessageBox.Show("Password must be between 8 and 10 characters, and contain at least one letter, one digit, and one special character.", "Exception 309", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -175,7 +176,7 @@ namespace BirdManagment
                 if (CompareStrings(rowUsername, username) == 0)
                     if (CompareStrings(rowPassword, password) == 0)
                     {
-                        MessageBox.Show("Login successful!");
+                        MessageBox.Show("Login successful!", "Success 103", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         var myForm = new Dashboard(rowUsername);
                         myForm.Show();
                         this.Hide();
@@ -226,7 +227,7 @@ namespace BirdManagment
              }*/
 
             // If no match is found, show an error message
-            MessageBox.Show("Invalid username or password.");
+            MessageBox.Show("Invalid username or password.", "Error 207", MessageBoxButtons.OK, MessageBoxIcon.Error);
     }
 
         private void Label2_Click(object sender, EventArgs e)
