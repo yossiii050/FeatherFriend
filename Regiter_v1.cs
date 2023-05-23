@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,11 +37,15 @@ namespace BirdManagment
         private void ChkBxShowPW_CheckedChanged(object sender, EventArgs e)
         {
             if (chkBxShowPW.Checked) {
+                pictureBox1.Image = BirdManagment.Properties.Resources.eye;
+                pictureBox4.Image = BirdManagment.Properties.Resources.eye;
                 txtRegisterPassword.PasswordChar = '\0';
                 txtRegisterConfirmPW.PasswordChar = '\0'; 
             }
             else
             {
+                pictureBox1.Image = BirdManagment.Properties.Resources.closedeye;
+                pictureBox4.Image = BirdManagment.Properties.Resources.closedeye;
                 txtRegisterPassword.PasswordChar = '•';
                 txtRegisterConfirmPW.PasswordChar = '•'; ;
 
@@ -112,6 +117,12 @@ namespace BirdManagment
             {
                 MessageBox.Show("Username must contain at most 2 digits.", "Exception 308", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+            if (TermsCheckBox.CheckState == CheckState.Unchecked)
+            {
+                MessageBox.Show("You must accept the terms of use. ", "Exception 216", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+
             }
 
             // Check if the username already exists in the Excel file
@@ -233,6 +244,37 @@ namespace BirdManagment
             return Regex.IsMatch(password, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,10}$");
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+            //this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using (var dialog = new TermsOfUse())
+            {
+                string gifFilePath = @"C:\FeatherFriend\DataBased\birdphoto\giphy.gif";  // Replace with the actual path to your GIF file
+                dialog.SetGif(gifFilePath);
+                dialog.ShowDialog();
+            }
+
+            /*var myForm = new TermsOfUse();
+            myForm.Show();
+            this.Hide();
+            */
+            //MessageBox.Show("Password and confirm password do not match!", "Error 210", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void TermsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
  
