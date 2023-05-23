@@ -1,6 +1,6 @@
 ﻿namespace BirdManagment
 {
-    partial class StartPage
+    partial class FeatherFriend
     {
         /// <summary>
         /// Required designer variable.
@@ -40,9 +40,10 @@
             // 
             this.REGISTER.BackColor = System.Drawing.Color.Transparent;
             this.REGISTER.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.REGISTER.Location = new System.Drawing.Point(12, 444);
+            this.REGISTER.Location = new System.Drawing.Point(21, 448);
+            this.REGISTER.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.REGISTER.Name = "REGISTER";
-            this.REGISTER.Size = new System.Drawing.Size(148, 75);
+            this.REGISTER.Size = new System.Drawing.Size(111, 61);
             this.REGISTER.TabIndex = 6;
             this.REGISTER.Text = "REGISTER";
             this.REGISTER.UseVisualStyleBackColor = false;
@@ -52,9 +53,10 @@
             // 
             this.LOGIN.BackColor = System.Drawing.Color.Transparent;
             this.LOGIN.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.LOGIN.Location = new System.Drawing.Point(695, 444);
+            this.LOGIN.Location = new System.Drawing.Point(681, 448);
+            this.LOGIN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LOGIN.Name = "LOGIN";
-            this.LOGIN.Size = new System.Drawing.Size(148, 75);
+            this.LOGIN.Size = new System.Drawing.Size(111, 61);
             this.LOGIN.TabIndex = 7;
             this.LOGIN.Text = "LOGIN";
             this.LOGIN.UseVisualStyleBackColor = false;
@@ -63,9 +65,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BirdManagment.Properties.Resources.birds;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(798, 477);
+            this.pictureBox1.Size = new System.Drawing.Size(793, 509);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -74,27 +77,29 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::BirdManagment.Properties.Resources.LOGO;
-            this.pictureBox2.Location = new System.Drawing.Point(605, 27);
+            this.pictureBox2.Location = new System.Drawing.Point(551, -16);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(225, 167);
+            this.pictureBox2.Size = new System.Drawing.Size(296, 246);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
-            // StartPage
+            // FeatherFriend
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(237)))), ((int)(((byte)(232)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(855, 531);
+            this.ClientSize = new System.Drawing.Size(809, 526);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.REGISTER);
             this.Controls.Add(this.LOGIN);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
-            this.Name = "StartPage";
-            this.Text = "StartPage";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "FeatherFriend";
+            this.Text = "FeatherFriend";
             this.Load += new System.EventHandler(this.StartPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

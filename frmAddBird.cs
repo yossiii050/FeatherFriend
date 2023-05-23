@@ -125,8 +125,9 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
-            
-           
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

@@ -41,6 +41,9 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
        
@@ -80,6 +83,8 @@ namespace BirdManagment
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
 
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -88,7 +93,8 @@ namespace BirdManagment
             textBox2.Enabled = true;
             textBox3.Enabled = true;
             comboBox2.Visible = true;
-            MessageBox.Show("Editing enabled!");
+            MessageBox.Show("Editing enabled!\n Choose Object first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 
         }
 
@@ -118,7 +124,7 @@ namespace BirdManagment
                 }
 
             }
-            MessageBox.Show("Data saved.");
+            MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
             wbCage.Save();
             wbCage.Close();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
@@ -127,6 +133,9 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
     }
 

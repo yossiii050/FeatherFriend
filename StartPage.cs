@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BirdManagment
 {
-    public partial class StartPage : Form
+    public partial class FeatherFriend : Form
     {
-        public StartPage()
+        public FeatherFriend()
         {
             InitializeComponent();
         }

@@ -36,12 +36,6 @@ namespace BirdManagment
                 MessageBox.Show("Invalid cage ID. Please use only letters or numbers.", "Exception 301", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
-            if (!IsValidDimension(len))
-            {
-                MessageBox.Show("Invalid length. Please enter numeric values.", "Exception 302", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             if (!IsValidDimension(wid))
             {
@@ -52,6 +46,12 @@ namespace BirdManagment
             if (!IsValidDimension(hei))
             {
                 MessageBox.Show("Invalid height. Please enter numeric values.", "Exception 304", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!IsValidDimension(len))
+            {
+                MessageBox.Show("Invalid length. Please enter numeric values.", "Exception 302", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -137,10 +137,15 @@ namespace BirdManagment
         public bool IsValidDimension(string dimension)
         {
             double value;
-            return double.TryParse(dimension, out value);
+            if (double.TryParse(dimension, out value))
+            {
+                if (value > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
-
-
 
         
     }

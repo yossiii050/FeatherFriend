@@ -129,6 +129,8 @@ namespace BirdManagment
                     MessageBox.Show("Username already exists. Please choose a different username.", "Error 208", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     wb.Close(false);
                     app.Quit();
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
                     return;
                 }
                 string existingID = ws.Cells[i, 3].Value.ToString();
@@ -137,6 +139,8 @@ namespace BirdManagment
                     MessageBox.Show("ID already exists. Please choose a different id.", "Error 209", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     wb.Close(false);
                     app.Quit();
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
                     return;
                 }
             }
