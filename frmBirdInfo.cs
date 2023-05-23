@@ -49,18 +49,18 @@ namespace BirdManagment
             System.GC.WaitForPendingFinalizers();
         }
 
-       
 
-        private void frmBirdInfo_Load(object sender, EventArgs e)
+
+        public void frmBirdInfo_Load(object sender, EventArgs e)
         {
            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             if (comboBox1.Text.Equals(""))
             {
-                MessageBox.Show("Choose Bird first to show info.", "Error 214", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Choose Bird first to show info.", "Error 217, MessageBoxButtons.OK, MessageBoxIcon.Error);
                
             }
             else
@@ -126,11 +126,11 @@ namespace BirdManagment
            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
          
                 comboBox2.Visible = true;
-                MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 213", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application app2 = new Application();
                 Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
                 Worksheet wsCage = wbCage.Worksheets["sheet1"];
@@ -161,7 +161,7 @@ namespace BirdManagment
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             if (comboBox2.Text.Equals(""))
             {
@@ -174,7 +174,7 @@ namespace BirdManagment
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 213", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
 
@@ -218,7 +218,7 @@ namespace BirdManagment
             System.GC.WaitForPendingFinalizers();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        public void button4_Click(object sender, EventArgs e)
         {
             string cageID = textBox6.Text;
             string spec = textBox2.Text;

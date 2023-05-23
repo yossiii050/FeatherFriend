@@ -12,14 +12,17 @@ using Excel = Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using System.Security.Cryptography;
 
+
 namespace BirdManagment
 {
     public partial class frmCageInfo : Form
     {
-      
+        private System.Data.DataTable originalTable1;
+
         public frmCageInfo()
         {
             InitializeComponent();
+            LoadExcelData(@"C:\FeatherFriend\DataBased\BirdDB.xlsx");
             Application app2 = new Application();
             Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
             Worksheet wsCage = wbCage.Worksheets["sheet1"];
@@ -49,16 +52,61 @@ namespace BirdManagment
 
        
 
-        private void frmCageInfo_Load(object sender, EventArgs e)
+        public void frmCageInfo_Load(object sender, EventArgs e)
         {
            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LoadExcelData(string filePath)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
+            Excel.Worksheet worksheet = workbook.Worksheets["sheet1"];
+            Excel.Range range = worksheet.UsedRange;
+
+            // Get the data into a DataTable
+            originalTable1 = new System.Data.DataTable(); // Initialize the original DataTable
+
+            for (int i = 1; i <= range.Columns.Count; i++)
+            {
+                originalTable1.Columns.Add((range.Cells[1, i] as Excel.Range).Value2.ToString());
+            }
+
+            for (int row = 2; row <= range.Rows.Count; row++)
+            {
+                DataRow dr = originalTable1.NewRow();
+                for (int col = 1; col <= range.Columns.Count; col++)
+                {
+                    var cell = range.Cells[row, col] as Excel.Range;
+                    dr[col - 1] = cell != null ? cell.Value2?.ToString() : string.Empty;
+                }
+                originalTable1.Rows.Add(dr);
+            }
+
+            // Bind the DataTable to the DataGridView
+
+            dataGridView2.DataSource = originalTable1;
+            dataGridView2.Visible = false;
+
+            // Clean up Excel objects
+            workbook.Close();
+            excelApp.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+            worksheet = null;
+            workbook = null;
+            excelApp = null;
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+        }
+
+        public void button1_Click(object sender, EventArgs e)
         {
             if (comboBox1.Text.Equals(""))
             {
-                MessageBox.Show("Choose Cage first to show info.", "Error 215", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Choose Cage first to show info.", "Error 204", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             else
@@ -96,26 +144,39 @@ namespace BirdManagment
                 textBox2.Enabled = false;
                 textBox3.Enabled = false;
                 comboBox2.Visible = false;
-                pictureBox1.Visible = true;
+                System.Data.DataTable filteredBirdsTable = originalTable1.Clone();
+                
+         
+                foreach (DataRow birdRow in originalTable1.Rows)
+                {
+                    if (Convert.ToString(birdRow["CageID"]) == cageID)
+                    {
+                       filteredBirdsTable.ImportRow(birdRow);
+                    }
+                }
+                
+
+                dataGridView2.DataSource = filteredBirdsTable;
+                dataGridView2.Visible = true;
                 System.GC.Collect();
                 System.GC.WaitForPendingFinalizers();
             }
            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             textBox3.Enabled = true;
             comboBox2.Visible = true;
             comboBox2.SelectedIndex = 1;
-            MessageBox.Show("Editing enabled!\n Choose Object first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
           
             string cageID = comboBox1.Text;

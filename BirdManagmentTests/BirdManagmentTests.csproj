@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="frmAddBirdTests.cs" />
     <Compile Include="frmAddCageTests.cs" />
+    <Compile Include="frmBirdInfoTests.cs" />
+    <Compile Include="frmCageInfoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Regiter_v1Tests.cs" />
   </ItemGroup>
