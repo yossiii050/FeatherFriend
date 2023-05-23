@@ -194,6 +194,21 @@ namespace BirdManagment
                 MessageBox.Show("Dad not selected.", "Error 206", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (spec=="")
+            {
+                MessageBox.Show("Species not selected.", "Error 213", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (subspec=="")
+            {
+                MessageBox.Show("Sub-Species not selected.", "Error 214", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (gen=="")
+            {
+                MessageBox.Show("Gender not selected.", "Error 215", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (IsBirdIdUsed(birdid, momid, dadid, ref momHeadcolor, ref dadHeadcolor, ref momBreastcolor, ref dadBreastcolor, ref momBodytcolor, ref dadBodycolor))
             {
                 MessageBox.Show("Bird ID already exists. Please choose a different ID.", "Error 202", MessageBoxButtons.OK, MessageBoxIcon.Error);
