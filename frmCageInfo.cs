@@ -96,6 +96,7 @@ namespace BirdManagment
                 textBox2.Enabled = false;
                 textBox3.Enabled = false;
                 comboBox2.Visible = false;
+                pictureBox1.Visible = true;
                 System.GC.Collect();
                 System.GC.WaitForPendingFinalizers();
             }
