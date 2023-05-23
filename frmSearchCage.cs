@@ -31,15 +31,12 @@ namespace BirdManagment
             Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
             Excel.Worksheet worksheet = workbook.Worksheets["sheet1"];
             Excel.Range range = worksheet.UsedRange;
-
             // Get the data into a DataTable
             originalTable = new DataTable(); // Initialize the original DataTable
-
             for (int i = 1; i <= range.Columns.Count; i++)
             {
                 originalTable.Columns.Add((range.Cells[1, i] as Excel.Range).Value2.ToString());
             }
-
             for (int row = 2; row <= range.Rows.Count; row++)
             {
                 DataRow dr = originalTable.NewRow();
@@ -50,12 +47,8 @@ namespace BirdManagment
                 }
                 originalTable.Rows.Add(dr);
             }
-
             // Bind the DataTable to the DataGridView
-
             dataGridView1.DataSource = originalTable;
-
-
             // Clean up Excel objects
             workbook.Close();
             excelApp.Quit();
@@ -65,7 +58,6 @@ namespace BirdManagment
             worksheet = null;
             workbook = null;
             excelApp = null;
-
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
         }

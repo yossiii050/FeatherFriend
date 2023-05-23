@@ -100,17 +100,12 @@ namespace BirdManagment
             Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
             Worksheet wsCage = wbCage.Worksheets["sheet1"];
             Range usedRangeCage = wsCage.UsedRange;
-
             int lastRowCage = usedRangeCage.Rows.Count;
             for (int row = 2; row <= lastRowCage; row++)
             {
                 string CageIds = Convert.ToString(wsCage.Cells[row, 1].Value);
-
                 comboBox2.Items.Add(CageIds);
-
             }
-
-
             wbCage.Close();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
             wbCage = null;
@@ -119,8 +114,6 @@ namespace BirdManagment
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
             MessageBox.Show("Editing enabled only for CageID!\n Choose new cage and save.");
-
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -130,7 +123,6 @@ namespace BirdManagment
             Workbook wbBird = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx");
             Worksheet wsBird = wbBird.Worksheets["sheet1"];
             Range usedRangeCage = wsBird.UsedRange;
-
             int lastRowCage = usedRangeCage.Rows.Count;
             for (int row = 2; row <= lastRowCage; row++)
             {
@@ -141,9 +133,7 @@ namespace BirdManagment
                     comboBox2.Visible = false;
                     break;
                 }
-
             }
-
             MessageBox.Show("Data saved.");
             wbBird.Save();
             wbBird.Close();
