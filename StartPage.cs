@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,10 +13,12 @@ namespace BirdManagment
 {
     public partial class FeatherFriend : Form
     {
+     
         public FeatherFriend()
         {
             InitializeComponent();
         }
+
 
         private void LOGIN_Click(object sender, EventArgs e)
         {
@@ -36,6 +39,11 @@ namespace BirdManagment
         private void StartPage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

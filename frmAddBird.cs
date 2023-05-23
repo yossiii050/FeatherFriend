@@ -366,21 +366,18 @@ namespace BirdManagment
             int genderCp = 0;
             if (gend == "Male")
                 genderCp=4;
-            if (gend == "Female")
+            else
                 genderCp=5;
-
             int row = 2;
             while (row <= 5)
             {
                 string dadheadc = Convert.ToString(colorws.Cells[row, 2].Value);
                 string mombheadc = Convert.ToString(colorws.Cells[row, 3].Value);
-
                 if (Headmom==mombheadc && Headdad==dadheadc)
                 {
                     string temphead = Convert.ToString(colorws.Cells[row, genderCp].Value);
                     BabyHeadColor=temphead;
                     System.Console.WriteLine(BabyHeadColor);
-
                 }
                 row++;
             }
@@ -395,36 +392,27 @@ namespace BirdManagment
                     BabyBreastColor=tempbreast;
                     System.Console.WriteLine(BabyBreastColor);
                 }
-
                 row++;
             }
-
             System.Console.WriteLine(row);
-            while (row <= 73)
+            while (row <= 76)
             {
                 string dadbodyc = Convert.ToString(colorws.Cells[row, 2].Value);
                 string mombodyc = Convert.ToString(colorws.Cells[row, 3].Value);
-
                 if (Bodymom==mombodyc && Bodydad==dadbodyc)
                 {
                     string tempbreast = Convert.ToString(colorws.Cells[row, genderCp].Value);
                     BabyBodyColor=tempbreast;
                     System.Console.WriteLine(BabyBodyColor);
                 }
-
                 row++;
             }
             System.Console.WriteLine(row);
             colordwb.Close();
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(colordwb);
             colordwb=null;
-
             app.Quit();
             app=null;
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
             colorws=null;
-
-           
         }
 
         private void breastcolorBird_TextChanged(object sender, EventArgs e)
