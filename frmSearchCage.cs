@@ -173,6 +173,7 @@ namespace BirdManagment
         {
             dataGridView1.DataSource = originalTable;
             dataGridView2.DataSource = originalTable1;
+            textBox1.Text = "";
             dataGridView2.Visible = false;
         }
 

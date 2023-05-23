@@ -60,7 +60,7 @@ namespace BirdManagment
         {
             if (comboBox1.Text.Equals(""))
             {
-                MessageBox.Show("Choose Bird first to show info.", "Error 217, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Choose Bird first to show info.", "Error 217", MessageBoxButtons.OK, MessageBoxIcon.Error);
                
             }
             else
