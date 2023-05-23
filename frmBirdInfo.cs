@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using System.IO;
 
 namespace BirdManagment
 {
@@ -42,6 +44,9 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
        
@@ -58,7 +63,7 @@ namespace BirdManagment
             Workbook wbBird = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx", ReadOnly: true);
             Worksheet wsBird = wbBird.Worksheets["sheet1"];
             Range usedRangeCage = wsBird.UsedRange;
-            string gend, head;
+            string gend, head, breast,body;
             int lastRowCage = usedRangeCage.Rows.Count;
             for (int row = 2; row <= lastRowCage; row++)
             {
@@ -77,9 +82,22 @@ namespace BirdManagment
                     textBox11.Text = Convert.ToString(wsBird.Cells[row, 11].Value);
                     gend= Convert.ToString(wsBird.Cells[row, 5].Value);
                     head = Convert.ToString(wsBird.Cells[row, 9].Value);
-                 //   pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\" + gend + head + ".jpg");
+                    breast= Convert.ToString(wsBird.Cells[row, 10].Value);
+                    body = Convert.ToString(wsBird.Cells[row, 11].Value);
+                    try
+                    {
+                        pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\" + gend + head + breast + body + ".png");
+                    }
+                    catch (FileNotFoundException e1)
+                    {
+                        pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\checkmark.gif");
+                        pictureBox1.SizeMode=PictureBoxSizeMode.Zoom;
+                        Console.WriteLine("Catch in the add Bird Picture");
+                    }
+                    
 
                 }
+
 
             }
 
@@ -90,6 +108,9 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
 
         }
 
@@ -118,7 +139,10 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
-            MessageBox.Show("Editing enabled only for CageID!\n Choose new cage and save.");
+            MessageBox.Show("Editing enabled!\n Choose Object first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
 
 
         }
@@ -144,7 +168,7 @@ namespace BirdManagment
 
             }
 
-            MessageBox.Show("Data saved.");
+            
             wbBird.Save();
             wbBird.Close();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wbBird);
@@ -153,6 +177,10 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
+            MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
         private void button4_Click(object sender, EventArgs e)

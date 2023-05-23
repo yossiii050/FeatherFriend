@@ -126,7 +126,8 @@ namespace BirdManagment
           
             if (comboBox1.SelectedItem == null)
             {
-                MessageBox.Show("Please choose search option.");
+                MessageBox.Show("Please choose search option.", "Error 211", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
             else
             {
@@ -184,6 +185,11 @@ namespace BirdManagment
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

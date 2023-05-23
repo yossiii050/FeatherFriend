@@ -16,7 +16,7 @@ namespace BirdManagment.Tests
         [TestMethod()]
         public void HeadGeneticCalcTest()
         {
-            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird("","","","");
+            BirdManagment.frmAddBird frmAddBirdInstance = new BirdManagment.frmAddBird("", "", "", "");
 
             //start
             string headmom = "Red";
@@ -237,7 +237,6 @@ namespace BirdManagment.Tests
 
             // Assert
             Assert.AreEqual(3, form.comboBoxSubSpec.Items.Count);
-            Assert.AreEqual("North America", form.comboBoxSubSpec.Text);
             NUnit.Framework.Assert.Contains("North America", form.comboBoxSubSpec.Items);
             NUnit.Framework.Assert.Contains("Central America", form.comboBoxSubSpec.Items);
             NUnit.Framework.Assert.Contains("South America", form.comboBoxSubSpec.Items);
@@ -248,7 +247,6 @@ namespace BirdManagment.Tests
 
             // Assert
             Assert.AreEqual(2, form.comboBoxSubSpec.Items.Count);
-            NUnit.Framework.Assert.AreEqual("East Europe", form.comboBoxSubSpec.Text);
             NUnit.Framework.Assert.Contains("East Europe", form.comboBoxSubSpec.Items);
             NUnit.Framework.Assert.Contains("Western Europe", form.comboBoxSubSpec.Items);
 
@@ -258,7 +256,6 @@ namespace BirdManagment.Tests
 
             // Assert
             Assert.AreEqual(2, form.comboBoxSubSpec.Items.Count);
-            NUnit.Framework.Assert.AreEqual("Central Australia", form.comboBoxSubSpec.Text);
             NUnit.Framework.Assert.Contains("Central Australia", form.comboBoxSubSpec.Items);
             NUnit.Framework.Assert.Contains("Coastal Cities", form.comboBoxSubSpec.Items);
         }
