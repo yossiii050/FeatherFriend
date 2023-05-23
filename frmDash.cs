@@ -57,13 +57,15 @@ namespace BirdManagment
 
             // Clean up Excel objects
             workbook.Close();
-            excelApp.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
             System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
-            worksheet = null;
             workbook = null;
+            worksheet = null;
+            excelApp.Quit();
+            
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
             excelApp = null;
+
 
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
@@ -98,15 +100,15 @@ namespace BirdManagment
             dataGridView2.DataSource = dt;
 
 
-            // Clean up Excel objects
             workbook.Close();
-            excelApp.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
             System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
-            worksheet = null;
             workbook = null;
+            worksheet = null;
+            excelApp.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+
             excelApp = null;
+
 
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();

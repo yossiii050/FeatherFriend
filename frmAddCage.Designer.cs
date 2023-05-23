@@ -103,17 +103,17 @@
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Plastic",
             "Metal",
             "Wood"});
             this.comboBox1.Location = new System.Drawing.Point(138, 259);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(107, 21);
             this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "Plastic";
             // 
             // label1
             // 
@@ -126,7 +126,6 @@
             this.label1.Size = new System.Drawing.Size(77, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Serial No.";
-            
             // 
             // label2
             // 
@@ -180,7 +179,7 @@
             // 
             this.pictureBox2.Image = global::BirdManagment.Properties.Resources.quest;
             this.pictureBox2.Location = new System.Drawing.Point(353, 42);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(207, 309);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -191,7 +190,7 @@
             // 
             this.pictureBox1.Image = global::BirdManagment.Properties.Resources.cage;
             this.pictureBox1.Location = new System.Drawing.Point(339, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(319, 352);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

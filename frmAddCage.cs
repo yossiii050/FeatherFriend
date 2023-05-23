@@ -55,6 +55,12 @@ namespace BirdManagment
                 return;
             }
 
+            if(mat=="")
+            {
+                MessageBox.Show("Invalid Material. Please choose from option.", "Exception 313", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (IsCageIdUsed(cageid))
             {
                 MessageBox.Show("Cage ID already exists. Please choose a different ID.", "Error 201", MessageBoxButtons.OK, MessageBoxIcon.Error);
