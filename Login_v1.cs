@@ -21,7 +21,8 @@ namespace BirdManagment
         public Login_v1()
         {
             InitializeComponent();
-
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
         private void Label1_Click(object sender, EventArgs e)
