@@ -99,10 +99,12 @@ namespace BirdManagment
         {
             if (chkBxShowPW.Checked)
             {
+                pictureBox4.Image = BirdManagment.Properties.Resources.eye;
                 txtLoginPassword.PasswordChar = '\0';
             }
             else
             {
+                pictureBox4.Image = BirdManagment.Properties.Resources.closedeye;
                 txtLoginPassword.PasswordChar = '•';
 
             }
@@ -282,6 +284,12 @@ namespace BirdManagment
             //     a negative integer if str1 is less than str2
             //     a positive integer if str1 is greater than str2
             return result;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+
         }
     }
 }
