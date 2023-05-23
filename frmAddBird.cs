@@ -32,12 +32,42 @@ namespace BirdManagment
             int lastRow = usedRange2.Rows.Count;
             comboBoxDad.Items.Add(0);
             comboBoxMom.Items.Add(0);
+            if (!id_f.Equals(""))
+            {
+                comboBoxSpec.Items.Add(spec_f);
+                comboBoxSubSpec.Items.Add(subspec_f);
+                comboBoxSpec.SelectedIndex= 0;
+                comboBoxSubSpec.SelectedIndex= 0;
+                comboBoxSpec.Enabled= false;
+                comboBoxSubSpec.Enabled= false;
+            }
+
             for (int row = 2; row <= lastRow; row++)
             {
                 int id = Convert.ToInt32(ws2.Cells[row, 1].Value);
                 string gender = Convert.ToString(ws2.Cells[row, 5].Value);
 
-                if (gender == "Male")
+                if (!id_f.Equals(""))
+                {
+                    if (id == int.Parse(id_f))
+                    {
+                        if (gender == "Male")
+                        {
+                            comboBoxDad.Items.Add(id);
+                            comboBoxDad.SelectedIndex = 1;
+                            comboBoxDad.Enabled= false;
+                            comboBoxMom.SelectedIndex = 0;
+                        }
+                        else if (gender == "Female")
+                        {
+                            comboBoxMom.Items.Add(id);
+                            comboBoxMom.SelectedIndex = 1;
+                            comboBoxMom.Enabled= false;
+                            comboBoxDad.SelectedIndex = 0;
+                        }
+                    }
+                }
+                else if (gender == "Male")
                 {
                     comboBoxDad.Items.Add(id);
                 }
@@ -84,6 +114,7 @@ namespace BirdManagment
                     if (CageIds == cageId_f)
                     {
                         comboBoxCage.Items.Add(CageIds);
+                        comboBoxCage.Enabled=false;
                         comboBoxCage.SelectedIndex = 0;
                     }
                 }
@@ -102,8 +133,9 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
-            
-           
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -139,32 +171,32 @@ namespace BirdManagment
             string dadBodycolor = "";
             if (!double.TryParse(serial.Text, out birdid))
             {
-                MessageBox.Show("Invalid bird ID. Please use only numbers.", "Error 305");
+                MessageBox.Show("Invalid bird ID. Please use only numbers.", "Exception 305", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (comboBoxCage.Items.Count == 0)
             {
-                MessageBox.Show("No available cage! Add a cage first", "Error 203");
+                MessageBox.Show("No available cage! Add a cage first", "Error 203", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (cageid=="")
             {
-                MessageBox.Show("Cage not selected.", "Error 204");
+                MessageBox.Show("Cage not selected.", "Error 204", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (momid=="")
             {
-                MessageBox.Show("Mom not selected.", "Error 205");
+                MessageBox.Show("Mom not selected.", "Error 205", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (dadid=="")
             {
-                MessageBox.Show("Dad not selected.", "Error 206");
+                MessageBox.Show("Dad not selected.", "Error 206", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (IsBirdIdUsed(birdid, momid, dadid, ref momHeadcolor, ref dadHeadcolor, ref momBreastcolor, ref dadBreastcolor, ref momBodytcolor, ref dadBodycolor))
             {
-                MessageBox.Show("Bird ID already exists. Please choose a different ID.", "Error 202");
+                MessageBox.Show("Bird ID already exists. Please choose a different ID.", "Error 202", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -189,7 +221,7 @@ namespace BirdManagment
             }
             catch (FileNotFoundException e1) {
                 pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\checkmark.gif");
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox1.SizeMode=PictureBoxSizeMode.Zoom;
                 Console.WriteLine("Catch in the add Bird Picture");
             }
             //pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\MaleRedPurpleGreen.png");
@@ -213,7 +245,7 @@ namespace BirdManagment
 
             wb.Close();
             ws=null;
-            MessageBox.Show("Bird add successfully!", "Success 102");
+            MessageBox.Show("Bird add successfully!", "Success 102", MessageBoxButtons.OK, MessageBoxIcon.Information);
             app.Quit();
 
 
@@ -348,7 +380,7 @@ namespace BirdManagment
                 row++;
             }
             System.Console.WriteLine(row);
-            while (row <= 29)
+            while (row <= 73)
             {
                 string dadbodyc = Convert.ToString(colorws.Cells[row, 2].Value);
                 string mombodyc = Convert.ToString(colorws.Cells[row, 3].Value);

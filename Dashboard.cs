@@ -264,9 +264,14 @@ namespace BirdManagment
 
         private void button9_Click(object sender, EventArgs e)
         {
-            var myForm = new StartPage();
+            var myForm = new FeatherFriend();
             myForm.Show();
             this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -66,20 +66,33 @@ namespace BirdManagment
             string ID = idTxt.Text;
 
             // check if the username and password are not empty
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password)|| string.IsNullOrEmpty(confirmPW)|| string.IsNullOrEmpty(ID))
             {
-                MessageBox.Show("Please enter username and password.");
+                MessageBox.Show("Empty fields! Please fill required fields.", "Exception 306", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Validate username
             if (username.Length < 6 || username.Length > 8)
             {
-                MessageBox.Show("Username must contain between 6 and 8 characters.");
+                MessageBox.Show("Username must contain between 6 and 8 characters.", "Exception 307", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            if(ID.Length!=9)
+            {
+                MessageBox.Show("ID must contain 9 numbers.", "Exception 311", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            foreach (char c in ID)
+            {
+                if (!Char.IsDigit(c))
+                {
+                    MessageBox.Show("ID must contain only digits.", "Exception 312", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
 
             int digitCount = 0;
             foreach (char c in username)
@@ -90,14 +103,14 @@ namespace BirdManagment
                 }
                 else if (!Char.IsLetter(c))
                 {
-                    MessageBox.Show("Username must contain only letters and digits.");
+                    MessageBox.Show("Username must contain only letters and digits.", "Exception 310", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
 
             if (digitCount > 2)
             {
-                MessageBox.Show("Username must contain at most 2 digits.");
+                MessageBox.Show("Username must contain at most 2 digits.", "Exception 308", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -113,17 +126,21 @@ namespace BirdManagment
                 string existingUsername = ws.Cells[i, 1].Value;
                 if (existingUsername == username)
                 {
-                    MessageBox.Show("Username already exists. Please choose a different username.");
+                    MessageBox.Show("Username already exists. Please choose a different username.", "Error 208", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     wb.Close(false);
                     app.Quit();
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
                     return;
                 }
                 string existingID = ws.Cells[i, 3].Value.ToString();
                 if (existingID == ID)
                 {
-                    MessageBox.Show("ID already exists. Please choose a different username.");
+                    MessageBox.Show("ID already exists. Please choose a different id.", "Error 209", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     wb.Close(false);
                     app.Quit();
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
                     return;
                 }
             }
@@ -137,13 +154,13 @@ namespace BirdManagment
   */
             if (!IsPasswordValid(password))
             {
-                MessageBox.Show("Password must be between 8 and 10 characters, and contain at least one letter, one digit, and one special character.");
+                MessageBox.Show("Password must be between 8 and 10 characters, and contain at least one letter, one digit, and one special character.", "Exception 309", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (password != confirmPW)
             {
-                MessageBox.Show("Password and confirm password do not match!");
+                MessageBox.Show("Password and confirm password do not match!", "Error 210", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -170,9 +187,9 @@ namespace BirdManagment
             //wb.SaveAs(@"C:\FetherFriendDocuments\TestWorkbook.xlsx");
             wb.Close();
            
-            MessageBox.Show("User registered successfully!");
-            
-            
+            MessageBox.Show("User registered successfully!", "Success 104", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
             var myForm = new Dashboard(username);
             myForm.Show();
             this.Hide();

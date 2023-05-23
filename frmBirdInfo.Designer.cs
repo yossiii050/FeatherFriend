@@ -64,7 +64,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label6.Location = new System.Drawing.Point(30, 28);
+            this.label6.Location = new System.Drawing.Point(29, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 25);
             this.label6.TabIndex = 15;
@@ -72,8 +72,10 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(196, 29);
+            this.comboBox1.Location = new System.Drawing.Point(196, 30);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 16;
@@ -81,8 +83,9 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(364, 23);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 35);
+            this.button1.Size = new System.Drawing.Size(95, 34);
             this.button1.TabIndex = 26;
             this.button1.Text = "Show info";
             this.button1.UseVisualStyleBackColor = true;
@@ -90,9 +93,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(646, 18);
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(645, 18);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 35);
+            this.button2.Size = new System.Drawing.Size(95, 34);
             this.button2.TabIndex = 27;
             this.button2.Text = "Edit info";
             this.button2.UseVisualStyleBackColor = true;
@@ -100,9 +105,11 @@
             // 
             // button3
             // 
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(747, 18);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 35);
+            this.button3.Size = new System.Drawing.Size(95, 34);
             this.button3.TabIndex = 29;
             this.button3.Text = "Save info";
             this.button3.UseVisualStyleBackColor = true;
@@ -124,7 +131,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label1.Location = new System.Drawing.Point(409, 381);
+            this.label1.Location = new System.Drawing.Point(409, 382);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 25);
             this.label1.TabIndex = 44;
@@ -168,7 +175,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label7.Location = new System.Drawing.Point(564, 189);
+            this.label7.Location = new System.Drawing.Point(564, 190);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 25);
             this.label7.TabIndex = 40;
@@ -221,7 +228,8 @@
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(226, 95);
+            this.textBox2.Location = new System.Drawing.Point(227, 95);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(135, 22);
             this.textBox2.TabIndex = 47;
@@ -229,7 +237,8 @@
             // textBox3
             // 
             this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(226, 152);
+            this.textBox3.Location = new System.Drawing.Point(227, 153);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(135, 22);
             this.textBox3.TabIndex = 48;
@@ -237,7 +246,8 @@
             // textBox4
             // 
             this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(226, 207);
+            this.textBox4.Location = new System.Drawing.Point(227, 207);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(135, 22);
             this.textBox4.TabIndex = 49;
@@ -245,7 +255,8 @@
             // textBox5
             // 
             this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(226, 264);
+            this.textBox5.Location = new System.Drawing.Point(227, 263);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(135, 22);
             this.textBox5.TabIndex = 50;
@@ -254,6 +265,7 @@
             // 
             this.textBox6.Enabled = false;
             this.textBox6.Location = new System.Drawing.Point(665, 95);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 22);
             this.textBox6.TabIndex = 51;
@@ -262,6 +274,7 @@
             // 
             this.textBox7.Enabled = false;
             this.textBox7.Location = new System.Drawing.Point(665, 140);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 22);
             this.textBox7.TabIndex = 52;
@@ -269,7 +282,8 @@
             // textBox8
             // 
             this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(665, 189);
+            this.textBox8.Location = new System.Drawing.Point(665, 190);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 22);
             this.textBox8.TabIndex = 53;
@@ -278,6 +292,7 @@
             // 
             this.textBox9.Enabled = false;
             this.textBox9.Location = new System.Drawing.Point(536, 346);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 22);
             this.textBox9.TabIndex = 54;
@@ -285,7 +300,8 @@
             // textBox10
             // 
             this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(536, 381);
+            this.textBox10.Location = new System.Drawing.Point(536, 382);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 22);
             this.textBox10.TabIndex = 55;
@@ -294,6 +310,7 @@
             // 
             this.textBox11.Enabled = false;
             this.textBox11.Location = new System.Drawing.Point(536, 414);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 22);
             this.textBox11.TabIndex = 56;
@@ -301,7 +318,8 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(771, 93);
+            this.comboBox2.Location = new System.Drawing.Point(771, 94);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(71, 24);
             this.comboBox2.TabIndex = 57;
@@ -309,9 +327,11 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(42, 425);
+            this.button4.Enabled = false;
+            this.button4.Location = new System.Drawing.Point(43, 425);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(173, 40);
+            this.button4.Size = new System.Drawing.Size(173, 39);
             this.button4.TabIndex = 58;
             this.button4.Text = "Add Fledgling";
             this.button4.UseVisualStyleBackColor = true;
@@ -320,7 +340,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(695, 346);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(147, 81);
             this.pictureBox1.TabIndex = 59;
@@ -361,7 +381,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmBirdInfo";
             this.Text = "frmDash";
             this.Load += new System.EventHandler(this.frmBirdInfo_Load);

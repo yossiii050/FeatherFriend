@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using System.IO;
 
 namespace BirdManagment
 {
@@ -42,6 +44,9 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
        
@@ -53,96 +58,164 @@ namespace BirdManagment
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string cageID = comboBox1.Text;
-            Application app2 = new Application();
-            Workbook wbBird = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx", ReadOnly: true);
-            Worksheet wsBird = wbBird.Worksheets["sheet1"];
-            Range usedRangeCage = wsBird.UsedRange;
-            string gend, head;
-            int lastRowCage = usedRangeCage.Rows.Count;
-            for (int row = 2; row <= lastRowCage; row++)
+            if (comboBox1.Text.Equals(""))
             {
-                if(string.Equals(cageID, Convert.ToString(wsBird.Cells[row,1].Value)))
+                MessageBox.Show("Choose Bird first to show info.", "Error 214", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
+            }
+            else
+            {
+                string birdID = comboBox1.Text;
+                Application app2 = new Application();
+                Workbook wbBird = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx", ReadOnly: true);
+                Worksheet wsBird = wbBird.Worksheets["sheet1"];
+                Range usedRangeCage = wsBird.UsedRange;
+                string gend, head, breast, body;
+                int lastRowCage = usedRangeCage.Rows.Count;
+                for (int row = 2; row <= lastRowCage; row++)
                 {
-                  
-                    textBox2.Text = Convert.ToString(wsBird.Cells[row, 2].Value);
-                    textBox3.Text = Convert.ToString(wsBird.Cells[row, 3].Value);
-                    textBox6.Text = Convert.ToString(wsBird.Cells[row, 4].Value);
-                    textBox4.Text = Convert.ToString(wsBird.Cells[row, 5].Value);
-                    textBox7.Text = Convert.ToString(wsBird.Cells[row, 6].Value);
-                    textBox8.Text = Convert.ToString(wsBird.Cells[row, 7].Value);
-                    textBox5.Text = Convert.ToString(wsBird.Cells[row, 8].Value);
-                    textBox9.Text = Convert.ToString(wsBird.Cells[row, 9].Value);
-                    textBox10.Text = Convert.ToString(wsBird.Cells[row, 10].Value);
-                    textBox11.Text = Convert.ToString(wsBird.Cells[row, 11].Value);
-                    gend= Convert.ToString(wsBird.Cells[row, 5].Value);
-                    head = Convert.ToString(wsBird.Cells[row, 9].Value);
-                 //   pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\" + gend + head + ".jpg");
+                    if (string.Equals(birdID, Convert.ToString(wsBird.Cells[row, 1].Value)))
+                    {
+
+                        textBox2.Text = Convert.ToString(wsBird.Cells[row, 2].Value);
+                        textBox3.Text = Convert.ToString(wsBird.Cells[row, 3].Value);
+                        textBox6.Text = Convert.ToString(wsBird.Cells[row, 4].Value);
+                        textBox4.Text = Convert.ToString(wsBird.Cells[row, 5].Value);
+                        textBox7.Text = Convert.ToString(wsBird.Cells[row, 6].Value);
+                        textBox8.Text = Convert.ToString(wsBird.Cells[row, 7].Value);
+                        textBox5.Text = Convert.ToString(wsBird.Cells[row, 8].Value);
+                        textBox9.Text = Convert.ToString(wsBird.Cells[row, 9].Value);
+                        textBox10.Text = Convert.ToString(wsBird.Cells[row, 10].Value);
+                        textBox11.Text = Convert.ToString(wsBird.Cells[row, 11].Value);
+                        gend = Convert.ToString(wsBird.Cells[row, 5].Value);
+                        head = Convert.ToString(wsBird.Cells[row, 9].Value);
+                        breast = Convert.ToString(wsBird.Cells[row, 10].Value);
+                        body = Convert.ToString(wsBird.Cells[row, 11].Value);
+                        try
+                        {
+                            pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\" + gend + head + breast + body + ".png");
+                        }
+                        catch (FileNotFoundException e1)
+                        {
+                            pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\checkmark.gif");
+                            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                            Console.WriteLine("Catch in the add Bird Picture");
+                        }
+
+
+                    }
+
 
                 }
 
+                wbBird.Close();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(wbBird);
+                wbBird = null;
+                wsBird = null;
+                app2.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
+                app2 = null;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                comboBox2.Visible = false;
             }
-
-            wbBird.Close();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(wbBird);
-            wbBird = null;
-            wsBird = null;
-            app2.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
-            app2 = null;
-
+            
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            comboBox2.Visible = true;
-            Application app2 = new Application();
-            Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
-            Worksheet wsCage = wbCage.Worksheets["sheet1"];
-            Range usedRangeCage = wsCage.UsedRange;
-            int lastRowCage = usedRangeCage.Rows.Count;
-            for (int row = 2; row <= lastRowCage; row++)
-            {
-                string CageIds = Convert.ToString(wsCage.Cells[row, 1].Value);
-                comboBox2.Items.Add(CageIds);
-            }
-            wbCage.Close();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
-            wbCage = null;
-            wsCage = null;
-            app2.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
-            app2 = null;
-            MessageBox.Show("Editing enabled only for CageID!\n Choose new cage and save.");
+         
+                comboBox2.Visible = true;
+                MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 213", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application app2 = new Application();
+                Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
+                Worksheet wsCage = wbCage.Worksheets["sheet1"];
+                Range usedRangeCage = wsCage.UsedRange;
+
+                int lastRowCage = usedRangeCage.Rows.Count;
+                for (int row = 2; row <= lastRowCage; row++)
+                {
+                    string CageIds = Convert.ToString(wsCage.Cells[row, 1].Value);
+
+                    comboBox2.Items.Add(CageIds);
+
+                }
+
+                wbCage.Close();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
+                wbCage = null;
+                wsCage = null;
+                app2.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
+                app2 = null;
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+
+            
+         
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string cageID = comboBox1.Text;
-            Application app2 = new Application();
-            Workbook wbBird = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx");
-            Worksheet wsBird = wbBird.Worksheets["sheet1"];
-            Range usedRangeCage = wsBird.UsedRange;
-            int lastRowCage = usedRangeCage.Rows.Count;
-            for (int row = 2; row <= lastRowCage; row++)
+            if (comboBox2.Text.Equals(""))
             {
-                if (string.Equals(cageID, Convert.ToString(wsBird.Cells[row, 1].Value)))
-                {
-                    wsBird.Cells[row, 4].Value = comboBox2.Text;
-                    textBox6.Text = Convert.ToString(wsBird.Cells[row, 4].Value);
-                    comboBox2.Visible = false;
-                    break;
+                DialogResult dialogResult = MessageBox.Show("Save witouht changes?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes)
+                { 
+                    MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    comboBox2.Visible= false;   
                 }
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 213", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
             }
-            MessageBox.Show("Data saved.");
-            wbBird.Save();
-            wbBird.Close();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(wbBird);
-            wbBird = null;
-            wsBird = null;
-            app2.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
-            app2 = null;
+            else
+            {
+                string cageID = comboBox1.Text;
+                Application app2 = new Application();
+                Workbook wbBird = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\BirdDB.xlsx");
+                Worksheet wsBird = wbBird.Worksheets["sheet1"];
+                Range usedRangeCage = wsBird.UsedRange;
+
+                int lastRowCage = usedRangeCage.Rows.Count;
+                for (int row = 2; row <= lastRowCage; row++)
+                {
+                    if (string.Equals(cageID, Convert.ToString(wsBird.Cells[row, 1].Value)))
+                    {
+                        wsBird.Cells[row, 4].Value = comboBox2.Text;
+                        textBox6.Text = Convert.ToString(wsBird.Cells[row, 4].Value);
+                        comboBox2.Visible = false;
+                        break;
+                    }
+
+                }
+
+
+                wbBird.Save();
+                wbBird.Close();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(wbBird);
+                wbBird = null;
+                wsBird = null;
+                app2.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
+                app2 = null;
+                comboBox2.Visible = false;
+                MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
         private void button4_Click(object sender, EventArgs e)

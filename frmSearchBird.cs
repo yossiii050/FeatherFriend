@@ -78,7 +78,7 @@ namespace BirdManagment
             
             if (comboBox1.SelectedItem == null)
             {
-                MessageBox.Show("Please choose search option.");
+                MessageBox.Show("Please choose search option.", "Error 211", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

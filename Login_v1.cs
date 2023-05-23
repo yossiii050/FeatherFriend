@@ -48,7 +48,7 @@ namespace BirdManagment
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(excelFilePath);
             Worksheet ws = wb.Worksheets["sheet1"];
-
+            
             // Read the data from the Excel file and store it in memory
             int rowCount = ws.Cells.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
             userCredentials = new Dictionary<string, string>();
@@ -58,21 +58,32 @@ namespace BirdManagment
                 string password = ws.Cells[i, 2].Value.ToString();
                 userCredentials.Add(username, password);
             }
-
-           /** wb.Close();
+            wb.Close();
 
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
             wb=null;
             app.Quit();
-
+            ws = null;
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
             app= null;
 
-            // Close the Excel file
-            // wb.Close();
-            // app.Quit();
-        **/
-            }
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+
+            /** wb.Close();
+
+             System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
+             wb=null;
+             app.Quit();
+
+             System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+             app= null;
+
+             // Close the Excel file
+             // wb.Close();
+             // app.Quit();
+         **/
+        }
 
         //private void btnLogin_Click(object sender, EventArgs e)
        // {
@@ -114,14 +125,19 @@ namespace BirdManagment
             // check if the username and password are not empty
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please enter username and password.");
+               
+                MessageBox.Show("Empty fields! Please fill required fields.", "Exception 306", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
                 return;
             }
 
             // Validate username
             if (username.Length < 6 || username.Length > 8)
             {
-                MessageBox.Show("Username must contain between 6 and 8 characters.");
+                MessageBox.Show("Username must contain between 6 and 8 characters.", "Exception 307", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
                 return;
             }
 
@@ -141,19 +157,17 @@ namespace BirdManagment
 
             if (digitCount > 2)
             {
-                MessageBox.Show("Username must contain at most 2 digits.");
+                MessageBox.Show("Username must contain at most 2 digits.", "Exception 308", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
                 return;
             }
-            /*
-            if (!IsUsernameValid(username))
-            {
-                MessageBox.Show("Username must contain between 6 and 8 characters. Of the characters, at most 2 digits and all the rest letters.");
-                return;
-            }
-            */
+
             if (!IsPasswordValid(password))
             {
-                MessageBox.Show("Password must be between 8 and 10 characters, and contain at least one letter, one digit, and one special character.");
+                MessageBox.Show("Password must be between 8 and 10 characters, and contain at least one letter, one digit, and one special character.", "Exception 309", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
                 return;
             }
 
@@ -175,21 +189,26 @@ namespace BirdManagment
                 if (CompareStrings(rowUsername, username) == 0)
                     if (CompareStrings(rowPassword, password) == 0)
                     {
-                        MessageBox.Show("Login successful!");
-                        var myForm = new Dashboard(rowUsername);
-                        myForm.Show();
-                        this.Hide();
+                        
                         wb.Close();
 
                         System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
                         wb=null;
+                        ws=null;
                         app.Quit();
 
                         System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
                         app= null;
 
+                        
+                        MessageBox.Show("Login successful!", "Success 103", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        var myForm = new Dashboard(rowUsername);
+                        myForm.Show();
+                        this.Hide();
+
                         System.GC.Collect();
                         System.GC.WaitForPendingFinalizers();
+
                         return;
                     }
                 //if((rowUsername==username) && (rowPassword==password))
@@ -208,26 +227,17 @@ namespace BirdManagment
 
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
             wb=null;
+            ws=null;
             app.Quit();
 
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
             app= null;
+            
+            MessageBox.Show("Invalid username or password.", "Error 207", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
 
-            // Console.WriteLine(userCredentials[username]);
-
-            // Check if the entered username and password match any in the dictionary
-            /* if (userCredentials[username] == password)
-             {
-                 MessageBox.Show("Login successful!");
-                 var myForm = new Dashboard();
-                 myForm.Show();
-                 this.Hide();
-                 return;
-             }*/
-
-            // If no match is found, show an error message
-            MessageBox.Show("Invalid username or password.");
-    }
+        }
 
         private void Label2_Click(object sender, EventArgs e)
         {
