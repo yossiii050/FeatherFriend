@@ -380,7 +380,7 @@ namespace BirdManagment
                 row++;
             }
             System.Console.WriteLine(row);
-            while (row <= 73)
+            while (row <= 76)
             {
                 string dadbodyc = Convert.ToString(colorws.Cells[row, 2].Value);
                 string mombodyc = Convert.ToString(colorws.Cells[row, 3].Value);
