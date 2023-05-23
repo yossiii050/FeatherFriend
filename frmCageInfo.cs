@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
+using System.Security.Cryptography;
 
 namespace BirdManagment
 {
@@ -55,36 +56,50 @@ namespace BirdManagment
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string cageID = comboBox1.Text;
-            Application app2 = new Application();
-            Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
-            Worksheet wsCage = wbCage.Worksheets["sheet1"];
-            Range usedRangeCage = wsCage.UsedRange;
-
-            int lastRowCage = usedRangeCage.Rows.Count;
-            for (int row = 2; row <= lastRowCage; row++)
+            if (comboBox1.Text.Equals(""))
             {
-                if(string.Equals(cageID, Convert.ToString(wsCage.Cells[row,1].Value)))
-                {
-                    textBox1.Text = Convert.ToString(wsCage.Cells[row, 2].Value);
-                    textBox2.Text = Convert.ToString(wsCage.Cells[row, 3].Value);
-                    textBox3.Text = Convert.ToString(wsCage.Cells[row, 4].Value);
-                    textBox4.Text = Convert.ToString(wsCage.Cells[row, 5].Value);
-                }
+                MessageBox.Show("Choose Cage first to show info.", "Error 215", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+            else
+            {
+                string cageID = comboBox1.Text;
+                Application app2 = new Application();
+                Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
+                Worksheet wsCage = wbCage.Worksheets["sheet1"];
+                Range usedRangeCage = wsCage.UsedRange;
+
+                int lastRowCage = usedRangeCage.Rows.Count;
+                for (int row = 2; row <= lastRowCage; row++)
+                {
+                    if (string.Equals(cageID, Convert.ToString(wsCage.Cells[row, 1].Value)))
+                    {
+                        textBox1.Text = Convert.ToString(wsCage.Cells[row, 2].Value);
+                        textBox2.Text = Convert.ToString(wsCage.Cells[row, 3].Value);
+                        textBox3.Text = Convert.ToString(wsCage.Cells[row, 4].Value);
+                        textBox4.Text = Convert.ToString(wsCage.Cells[row, 5].Value);
+                    }
+
+                }
 
 
-            wbCage.Close();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
-            wbCage = null;
-            wsCage = null;
-            app2.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
-            app2 = null;
-
-            System.GC.Collect();
-            System.GC.WaitForPendingFinalizers();
+                wbCage.Close();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
+                wbCage = null;
+                wsCage = null;
+                app2.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
+                app2 = null;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+                textBox3.Enabled = false;
+                comboBox2.Visible = false;
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+            }
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -93,6 +108,7 @@ namespace BirdManagment
             textBox2.Enabled = true;
             textBox3.Enabled = true;
             comboBox2.Visible = true;
+            comboBox2.SelectedIndex = 1;
             MessageBox.Show("Editing enabled!\n Choose Object first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
@@ -100,16 +116,35 @@ namespace BirdManagment
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Enabled = false;
-            textBox2.Enabled = false;
-            textBox3.Enabled = false;
-            comboBox2.Visible = false;
+          
             string cageID = comboBox1.Text;
             Application app2 = new Application();
             Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx");
             Worksheet wsCage = wbCage.Worksheets["sheet1"];
             Range usedRangeCage = wsCage.UsedRange;
+            if (!IsValidDimension(textBox1.Text))
+            {
+                MessageBox.Show("Invalid width. Please enter numeric values.", "Exception 303", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                return;
+            }
 
+            if (!IsValidDimension(textBox2.Text))
+            {
+                MessageBox.Show("Invalid height. Please enter numeric values.", "Exception 304", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                return;
+            }
+
+            if (!IsValidDimension(textBox3.Text))
+            {
+                MessageBox.Show("Invalid length. Please enter numeric values.", "Exception 302", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                return;
+            }
             int lastRowCage = usedRangeCage.Rows.Count;
             for (int row = 2; row <= lastRowCage; row++)
             {
@@ -133,10 +168,29 @@ namespace BirdManagment
             app2.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
-
+            button2.Enabled = false;
+            button3.Enabled = false;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
+            comboBox2.Visible = false;
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
         }
+
+        public bool IsValidDimension(string dimension)
+        {
+            double value;
+            if (double.TryParse(dimension, out value))
+            {
+                if (value > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 
 }

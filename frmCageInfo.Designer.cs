@@ -57,6 +57,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(191, 29);
             this.comboBox1.Name = "comboBox1";
@@ -151,6 +152,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(677, 23);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 35);
@@ -161,6 +163,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "Plastic",
@@ -174,6 +177,7 @@
             // 
             // button3
             // 
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(778, 23);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(95, 35);
