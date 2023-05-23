@@ -32,12 +32,34 @@ namespace BirdManagment
             int lastRow = usedRange2.Rows.Count;
             comboBoxDad.Items.Add(0);
             comboBoxMom.Items.Add(0);
+
+
             for (int row = 2; row <= lastRow; row++)
             {
                 int id = Convert.ToInt32(ws2.Cells[row, 1].Value);
                 string gender = Convert.ToString(ws2.Cells[row, 5].Value);
 
-                if (gender == "Male")
+                if (!id_f.Equals(""))
+                {
+                    if (id == int.Parse(id_f))
+                    {
+                        if (gender == "Male")
+                        {
+                            comboBoxDad.Items.Add(id);
+                            comboBoxDad.SelectedIndex = 1;
+                            comboBoxDad.Enabled= false;
+                            comboBoxMom.SelectedIndex = 0;
+                        }
+                        else if (gender == "Female")
+                        {
+                            comboBoxMom.Items.Add(id);
+                            comboBoxMom.SelectedIndex = 1;
+                            comboBoxMom.Enabled= false;
+                            comboBoxDad.SelectedIndex = 0;
+                        }
+                    }
+                }
+                else if (gender == "Male")
                 {
                     comboBoxDad.Items.Add(id);
                 }
@@ -84,6 +106,7 @@ namespace BirdManagment
                     if (CageIds == cageId_f)
                     {
                         comboBoxCage.Items.Add(CageIds);
+                        comboBoxCage.Enabled=false;
                         comboBoxCage.SelectedIndex = 0;
                     }
                 }
