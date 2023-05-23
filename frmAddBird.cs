@@ -169,29 +169,15 @@ namespace BirdManagment
             string dadBreastcolor = "";
             string momBodytcolor = "";
             string dadBodycolor = "";
-            if (!double.TryParse(serial.Text, out birdid))
+            if (!IsValidsn(serial.Text))
             {
                 MessageBox.Show("Invalid bird ID. Please use only numbers.", "Exception 305", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            double.TryParse(serial.Text, out birdid);
             if (comboBoxCage.Items.Count == 0)
             {
                 MessageBox.Show("No available cage! Add a cage first", "Error 203", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (cageid=="")
-            {
-                MessageBox.Show("Cage not selected.", "Error 204", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (momid=="")
-            {
-                MessageBox.Show("Mom not selected.", "Error 205", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (dadid=="")
-            {
-                MessageBox.Show("Dad not selected.", "Error 206", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (spec=="")
@@ -209,6 +195,22 @@ namespace BirdManagment
                 MessageBox.Show("Gender not selected.", "Error 215", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (cageid=="")
+            {
+                MessageBox.Show("Cage not selected.", "Error 204", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (momid=="")
+            {
+                MessageBox.Show("Mom not selected.", "Error 205", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dadid=="")
+            {
+                MessageBox.Show("Dad not selected.", "Error 206", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
             if (IsBirdIdUsed(birdid, momid, dadid, ref momHeadcolor, ref dadHeadcolor, ref momBreastcolor, ref dadBreastcolor, ref momBodytcolor, ref dadBodycolor))
             {
                 MessageBox.Show("Bird ID already exists. Please choose a different ID.", "Error 202", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -414,7 +416,18 @@ namespace BirdManagment
             app=null;
             colorws=null;
         }
-
+        public bool IsValidsn(string sn)
+        {
+            double value;
+            if (double.TryParse(sn, out value))
+            {
+                if (value > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void breastcolorBird_TextChanged(object sender, EventArgs e)
         {
 
