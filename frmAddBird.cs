@@ -32,7 +32,15 @@ namespace BirdManagment
             int lastRow = usedRange2.Rows.Count;
             comboBoxDad.Items.Add(0);
             comboBoxMom.Items.Add(0);
-
+            if (!id_f.Equals(""))
+            {
+                comboBoxSpec.Items.Add(spec_f);
+                comboBoxSubSpec.Items.Add(subspec_f);
+                comboBoxSpec.SelectedIndex= 0;
+                comboBoxSubSpec.SelectedIndex= 0;
+                comboBoxSpec.Enabled= false;
+                comboBoxSubSpec.Enabled= false;
+            }
 
             for (int row = 2; row <= lastRow; row++)
             {
