@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
 using System.Security.Cryptography;
 
 
@@ -18,13 +17,13 @@ namespace BirdManagment
     public partial class frmCageInfo : Form
     {
         private System.Data.DataTable originalTable1;
-
+        string w, h, l, m;
         public frmCageInfo()
         {
             InitializeComponent();
             LoadExcelData(@"C:\FeatherFriend\DataBased\BirdDB.xlsx");
-            Application app2 = new Application();
-            Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
+            Excel. Application app2 = new Excel.Application();
+            Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx");
             Worksheet wsCage = wbCage.Worksheets["sheet1"];
             Range usedRangeCage = wsCage.UsedRange;
 
@@ -46,8 +45,8 @@ namespace BirdManagment
             System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
             app2 = null;
 
-            System.GC.Collect();
-            System.GC.WaitForPendingFinalizers();
+            //System.GC.Collect();
+           // System.GC.WaitForPendingFinalizers();
         }
 
        
@@ -60,7 +59,7 @@ namespace BirdManagment
         private void LoadExcelData(string filePath)
         {
             Excel.Application excelApp = new Excel.Application();
-            Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
+            Excel.Workbook workbook = excelApp.Workbooks.Open(filePath, ReadOnly: true);
             Excel.Worksheet worksheet = workbook.Worksheets["sheet1"];
             Excel.Range range = worksheet.UsedRange;
 
@@ -107,13 +106,12 @@ namespace BirdManagment
             if (comboBox1.Text.Equals(""))
             {
                 MessageBox.Show("Choose Cage first to show info.", "Error 204", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             else
             {
                 string cageID = comboBox1.Text;
-                Application app2 = new Application();
-                Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
+                Excel. Application app2 = new Excel.Application();
+                Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx");
                 Worksheet wsCage = wbCage.Worksheets["sheet1"];
                 Range usedRangeCage = wsCage.UsedRange;
 
@@ -126,6 +124,7 @@ namespace BirdManagment
                         textBox2.Text = Convert.ToString(wsCage.Cells[row, 3].Value);
                         textBox3.Text = Convert.ToString(wsCage.Cells[row, 4].Value);
                         textBox4.Text = Convert.ToString(wsCage.Cells[row, 5].Value);
+                       
                     }
 
                 }
@@ -139,7 +138,7 @@ namespace BirdManagment
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
                 app2 = null;
                 button2.Enabled = true;
-                button3.Enabled = true;
+                
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
                 textBox3.Enabled = false;
@@ -158,84 +157,100 @@ namespace BirdManagment
 
                 dataGridView2.DataSource = filteredBirdsTable;
                 dataGridView2.Visible = true;
-                System.GC.Collect();
-                System.GC.WaitForPendingFinalizers();
+            
             }
-           
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
         public void button2_Click(object sender, EventArgs e)
         {
+            w = textBox1.Text;
+            h = textBox2.Text;
+            l = textBox3.Text;
+            m = textBox4.Text;
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             textBox3.Enabled = true;
             comboBox2.Visible = true;
             comboBox2.SelectedIndex = 1;
-            MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            button3.Enabled = true;
+            button2.Enabled = false;
+            //MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
         }
 
         public void button3_Click(object sender, EventArgs e)
         {
-          
-            string cageID = comboBox1.Text;
-            Application app2 = new Application();
-            Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx");
-            Worksheet wsCage = wbCage.Worksheets["sheet1"];
-            Range usedRangeCage = wsCage.UsedRange;
-            if (!IsValidDimension(textBox1.Text))
+            if (w==textBox1.Text && h==textBox2.Text && l==textBox3.Text && m==comboBox2.Text)
             {
-                MessageBox.Show("Invalid width. Please enter numeric values.", "Exception 303", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                System.GC.Collect();
-                System.GC.WaitForPendingFinalizers();
-                return;
-            }
+                DialogResult dialogResult = MessageBox.Show("Save witouht changes?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (!IsValidDimension(textBox2.Text))
-            {
-                MessageBox.Show("Invalid height. Please enter numeric values.", "Exception 304", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                System.GC.Collect();
-                System.GC.WaitForPendingFinalizers();
-                return;
-            }
-
-            if (!IsValidDimension(textBox3.Text))
-            {
-                MessageBox.Show("Invalid length. Please enter numeric values.", "Exception 302", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                System.GC.Collect();
-                System.GC.WaitForPendingFinalizers();
-                return;
-            }
-            int lastRowCage = usedRangeCage.Rows.Count;
-            for (int row = 2; row <= lastRowCage; row++)
-            {
-                if (string.Equals(cageID, Convert.ToString(wsCage.Cells[row, 1].Value)))
+                if (dialogResult == DialogResult.Yes)
                 {
-                    wsCage.Cells[row, 2].Value = textBox1.Text;
-                    wsCage.Cells[row, 3].Value = textBox2.Text;
-                    wsCage.Cells[row, 4].Value = textBox3.Text;
-                    wsCage.Cells[row, 5].Value = comboBox2.Text;
-                    textBox4.Text = comboBox2.Text;
-                    break;
+                    MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    comboBox2.Visible = false;
+                    button2.Enabled = true;
+                    button3.Enabled = false;
+                } 
+            }
+            else
+            {
+               
+                if (!IsValidDimension(textBox1.Text))
+                {
+                    MessageBox.Show("Invalid width. Please enter numeric values.", "Exception 303", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
+                if (!IsValidDimension(textBox2.Text))
+                {
+                    MessageBox.Show("Invalid height. Please enter numeric values.", "Exception 304", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!IsValidDimension(textBox3.Text))
+                {
+                    MessageBox.Show("Invalid length. Please enter numeric values.", "Exception 302", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                string cageID = comboBox1.Text;
+                Excel. Application app2 = new Excel.Application();
+                Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx");
+                Worksheet wsCage = wbCage.Worksheets["sheet1"];
+                Range usedRangeCage = wsCage.UsedRange;
+                int lastRowCage = usedRangeCage.Rows.Count;
+                for (int row = 2; row <= lastRowCage; row++)
+                {
+                    if (string.Equals(cageID, Convert.ToString(wsCage.Cells[row, 1].Value)))
+                    {
+                        wsCage.Cells[row, 2].Value = textBox1.Text;
+                        wsCage.Cells[row, 3].Value = textBox2.Text;
+                        wsCage.Cells[row, 4].Value = textBox3.Text;
+                        wsCage.Cells[row, 5].Value = comboBox2.Text;
+                        textBox4.Text = comboBox2.Text;
+                        break;
+                    }
+
+                }
+                MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                wbCage.Save();
+                wbCage.Close();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
+                wbCage = null;
+                wsCage = null;
+                app2.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
+                app2 = null;
+                button2.Enabled = true;
+                button3.Enabled = false;
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+                textBox3.Enabled = false;
+                comboBox2.Visible = false;
             }
-            MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            wbCage.Save();
-            wbCage.Close();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
-            wbCage = null;
-            wsCage = null;
-            app2.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
-            app2 = null;
-            button2.Enabled = false;
-            button3.Enabled = false;
-            textBox1.Enabled = false;
-            textBox2.Enabled = false;
-            textBox3.Enabled = false;
-            comboBox2.Visible = false;
+            
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
         }

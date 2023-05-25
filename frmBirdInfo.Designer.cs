@@ -317,6 +317,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(771, 94);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -340,7 +341,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(695, 346);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(147, 81);
             this.pictureBox1.TabIndex = 59;
@@ -381,7 +382,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmBirdInfo";
             this.Text = "frmDash";
             this.Load += new System.EventHandler(this.frmBirdInfo_Load);

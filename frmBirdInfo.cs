@@ -116,7 +116,7 @@ namespace BirdManagment
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
                 app2 = null;
                 button2.Enabled = true;
-                button3.Enabled = true;
+                
                 button4.Enabled = true;
                 comboBox2.Visible = false;
             }
@@ -128,9 +128,10 @@ namespace BirdManagment
 
         public void button2_Click(object sender, EventArgs e)
         {
-         
+                button2.Enabled = false;
+                button3.Enabled = true;
                 comboBox2.Visible = true;
-                MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application app2 = new Application();
                 Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
                 Worksheet wsCage = wbCage.Worksheets["sheet1"];
@@ -170,7 +171,9 @@ namespace BirdManagment
                 if (dialogResult == DialogResult.Yes)
                 { 
                     MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    comboBox2.Visible= false;   
+                    comboBox2.Visible= false;
+                    button2.Enabled = true;
+                    button3.Enabled = false;
                 }
                 else if (dialogResult == DialogResult.No)
                 {
@@ -200,7 +203,8 @@ namespace BirdManagment
 
                 }
 
-
+                button3.Enabled = false;
+                button2.Enabled = true;
                 wbBird.Save();
                 wbBird.Close();
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(wbBird);
