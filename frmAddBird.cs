@@ -76,8 +76,9 @@ namespace BirdManagment
                     comboBoxMom.Items.Add(id);
                 }
             }
+            dateTimePicker1.MaxDate = DateTime.Now;
 
-            if(comboBoxDad.SelectedIndex == 1 || comboBoxMom.SelectedIndex == 1)
+            if (comboBoxDad.SelectedIndex == 1 || comboBoxMom.SelectedIndex == 1)
             {
                 for (int row = 2; row <= lastRow; row++)
                 {
@@ -195,6 +196,8 @@ namespace BirdManagment
                 MessageBox.Show("Gender not selected.", "Error 215", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
             if (cageid=="")
             {
                 MessageBox.Show("Cage not selected.", "Error 204", MessageBoxButtons.OK, MessageBoxIcon.Error);

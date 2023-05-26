@@ -188,11 +188,11 @@ namespace BirdManagment
             {
                 string rowUsername = ws.Cells[i, 1].Value.ToString().Trim();
                 string rowPassword = ws.Cells[i, 2].Value.ToString().Trim();
-
-                if (CompareStrings(rowUsername, username) == 0)
+                Console.WriteLine(rowUsername + " " + rowPassword);
+                if (CompareStrings(rowUsername, username) == 0) {
                     if (CompareStrings(rowPassword, password) == 0)
                     {
-                        
+
                         wb.Close();
 
                         System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
@@ -203,7 +203,7 @@ namespace BirdManagment
                         System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
                         app= null;
 
-                        
+
                         MessageBox.Show("Login successful!", "Success 103", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         var myForm = new Dashboard(rowUsername);
                         myForm.Show();
@@ -214,6 +214,13 @@ namespace BirdManagment
 
                         return;
                     }
+                    MessageBox.Show("Password doesn't match the username.", "Error 218", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+                    return;
+
+                }
+                
                 //if((rowUsername==username) && (rowPassword==password))
                    // Console.WriteLine(username + " " + password);
 
