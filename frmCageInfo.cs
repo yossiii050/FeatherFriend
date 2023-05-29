@@ -1,15 +1,8 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
-using System.Security.Cryptography;
 
 
 namespace BirdManagment
@@ -63,8 +56,8 @@ namespace BirdManagment
             Excel.Worksheet worksheet = workbook.Worksheets["sheet1"];
             Excel.Range range = worksheet.UsedRange;
 
-            // Get the data into a DataTable
-            originalTable1 = new System.Data.DataTable(); // Initialize the original DataTable
+            
+            originalTable1 = new System.Data.DataTable(); 
 
             for (int i = 1; i <= range.Columns.Count; i++)
             {
@@ -82,12 +75,12 @@ namespace BirdManagment
                 originalTable1.Rows.Add(dr);
             }
 
-            // Bind the DataTable to the DataGridView
+            
 
             dataGridView2.DataSource = originalTable1;
             dataGridView2.Visible = false;
 
-            // Clean up Excel objects
+            
             workbook.Close();
             excelApp.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);

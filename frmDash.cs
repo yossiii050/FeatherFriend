@@ -31,7 +31,8 @@ namespace BirdManagment
             Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
             Excel.Worksheet worksheet = workbook.Worksheets["sheet1"];
             Excel.Range range = worksheet.UsedRange;
-            
+            System.Console.WriteLine(range.Columns.Count);
+            System.Console.WriteLine(range.Rows.Count);
             // Get the data into a DataTable
             DataTable dt = new DataTable();
 
@@ -76,12 +77,14 @@ namespace BirdManagment
             Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
             Excel.Worksheet worksheet = workbook.Worksheets["sheet1"];
             Excel.Range range = worksheet.UsedRange;
-
+            System.Console.WriteLine(range.Columns.Count);
+            System.Console.WriteLine(range.Rows.Count);
             // Get the data into a DataTable
             DataTable dt = new DataTable();
-
-            for (int i = 1; i <= range.Columns.Count; i++)
+            // range.Columns.Count
+            for (int i = 1; i <=range.Columns.Count; i++)
             {
+                
                 dt.Columns.Add((range.Cells[1, i] as Excel.Range).Value2.ToString());
             }
 
@@ -90,6 +93,7 @@ namespace BirdManagment
                 DataRow dr = dt.NewRow();
                 for (int col = 1; col <= range.Columns.Count; col++)
                 {
+                    
                     dr[col - 1] = (range.Cells[row, col] as Excel.Range).Value2.ToString();
                 }
                 dt.Rows.Add(dr);

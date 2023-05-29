@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
@@ -125,7 +117,7 @@ namespace BirdManagment
 
             }
 
-            // Check if the username already exists in the Excel file
+            // check if the username already exists in the Excel file
             Application app = new Application();
             app.Visible = false;
             Workbook wb = app.Workbooks.Open(@"C:\FeatherFriend\DataBased\UsersDB.xlsx");
@@ -156,13 +148,6 @@ namespace BirdManagment
                 }
             }
 
-            /*
-            if (!IsUsernameValid(username))
-            {
-                MessageBox.Show("Username must contain between 6 and 8 characters. Of the characters, at most 2 digits and all the rest letters.");
-                return;
-            }
-  */
             if (!IsPasswordValid(password))
             {
                 MessageBox.Show("Password must be between 8 and 10 characters, and contain at least one letter, one digit, and one special character.", "Exception 309", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -176,26 +161,21 @@ namespace BirdManagment
             }
 
 
-            // Find the first empty row in the worksheet
+            
             int row = 2;
             while (ws.Cells[row, 1].Value != null)
             {
                 row++;
             }
 
-            // Write the username and password to the worksheet
+            
             ws.Cells[row, 1].Value = username;
             ws.Cells[row, 2].Value = password;
             ws.Cells[row, 3].Value = ID;
 
-            // Save and close the workbook
-            // Save the workbook to a different location and with a different name
-            //wb.SaveAs(@"C:\FetherFriendDocuments\NewWorkbook.xlsx");
-
 
             wb.Save();
             
-            //wb.SaveAs(@"C:\FetherFriendDocuments\TestWorkbook.xlsx");
             wb.Close();
            
             MessageBox.Show("User registered successfully!", "Success 104", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -205,8 +185,6 @@ namespace BirdManagment
             myForm.Show();
             this.Hide();
 
-            ////////////////////////////////////////////////////
-            ///wb.Close();
 
             System.Runtime.InteropServices.Marshal.ReleaseComObject(wb);
             wb = null;
@@ -217,8 +195,6 @@ namespace BirdManagment
             app.Quit();
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
-
-
 
 
         }
@@ -234,20 +210,20 @@ namespace BirdManagment
 
         public bool IsUsernameValid(string username)
         {
-            // Use regular expressions to check if the username contains between 6 and 8 characters, with at most 2 digits and all the rest letters
+            // check if the username contains between 6 and 8 characters, with at most 2 digits and all the rest letters
             return Regex.IsMatch(username, @"^[a-zA-Z]{4}[0-9]{0,2}$");
         }
 
         private bool IsPasswordValid(string password)
         {
-            // Use regular expressions to check if the password contains at least one letter, one digit, and one special character
+            // check if the password contains at least one letter, one digit, and one special character
             return Regex.IsMatch(password, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,10}$");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
-            //this.Close();
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -264,11 +240,7 @@ namespace BirdManagment
                 dialog.ShowDialog();
             }
 
-            /*var myForm = new TermsOfUse();
-            myForm.Show();
-            this.Hide();
-            */
-            //MessageBox.Show("Password and confirm password do not match!", "Error 210", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
         }
 
         private void TermsCheckBox_CheckedChanged(object sender, EventArgs e)
