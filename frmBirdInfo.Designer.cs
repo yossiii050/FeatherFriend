@@ -56,6 +56,9 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,7 +123,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label10.Location = new System.Drawing.Point(409, 415);
+            this.label10.Location = new System.Drawing.Point(245, 416);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(109, 25);
             this.label10.TabIndex = 45;
@@ -131,7 +134,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label1.Location = new System.Drawing.Point(409, 382);
+            this.label1.Location = new System.Drawing.Point(245, 383);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 25);
             this.label1.TabIndex = 44;
@@ -142,7 +145,7 @@
             this.labelHeadcolor.AutoSize = true;
             this.labelHeadcolor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.labelHeadcolor.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.labelHeadcolor.Location = new System.Drawing.Point(409, 346);
+            this.labelHeadcolor.Location = new System.Drawing.Point(245, 347);
             this.labelHeadcolor.Name = "labelHeadcolor";
             this.labelHeadcolor.Size = new System.Drawing.Size(111, 25);
             this.labelHeadcolor.TabIndex = 43;
@@ -291,7 +294,7 @@
             // textBox9
             // 
             this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(536, 346);
+            this.textBox9.Location = new System.Drawing.Point(372, 347);
             this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 22);
@@ -300,7 +303,7 @@
             // textBox10
             // 
             this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(536, 382);
+            this.textBox10.Location = new System.Drawing.Point(372, 383);
             this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 22);
@@ -309,7 +312,7 @@
             // textBox11
             // 
             this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(536, 414);
+            this.textBox11.Location = new System.Drawing.Point(372, 415);
             this.textBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 22);
@@ -347,12 +350,61 @@
             this.pictureBox1.TabIndex = 59;
             this.pictureBox1.TabStop = false;
             // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Black",
+            "Red"});
+            this.comboBox3.Location = new System.Drawing.Point(491, 346);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 24);
+            this.comboBox3.TabIndex = 60;
+            this.comboBox3.Visible = false;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Purple",
+            "Lilach",
+            "White"});
+            this.comboBox4.Location = new System.Drawing.Point(491, 383);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(121, 24);
+            this.comboBox4.TabIndex = 61;
+            this.comboBox4.Visible = false;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            "Green",
+            "White",
+            "Blue",
+            "Pastel",
+            "Silver",
+            "White Pastel",
+            "Blue Pastel",
+            "Green Pastel"});
+            this.comboBox5.Location = new System.Drawing.Point(491, 415);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(121, 24);
+            this.comboBox5.TabIndex = 62;
+            this.comboBox5.Visible = false;
+            // 
             // frmBirdInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(904, 490);
+            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.comboBox2);
@@ -422,5 +474,8 @@
         public System.Windows.Forms.ComboBox comboBox2;
         public System.Windows.Forms.Button button4;
         public System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox5;
     }
 }

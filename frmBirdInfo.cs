@@ -119,6 +119,9 @@ namespace BirdManagment
                 
                 button4.Enabled = true;
                 comboBox2.Visible = false;
+                comboBox3.Visible= false;
+                comboBox4.Visible= false;
+                comboBox5.Visible= false;
             }
             
             System.GC.Collect();
@@ -131,8 +134,16 @@ namespace BirdManagment
                 button2.Enabled = false;
                 button3.Enabled = true;
                 comboBox2.Visible = true;
-               // MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application app2 = new Application();
+                comboBox3.Visible = true;
+                comboBox4.Visible = true;
+                comboBox5.Visible = true;
+                
+                comboBox3.Text=textBox9.Text;
+                comboBox4.Text=textBox10.Text;
+                comboBox5.Text=textBox11.Text;
+
+            // MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Application app2 = new Application();
                 Workbook wbCage = app2.Workbooks.Open(@"C:\FeatherFriend\DataBased\CageDB.xlsx", ReadOnly: true);
                 Worksheet wsCage = wbCage.Worksheets["sheet1"];
                 Range usedRangeCage = wsCage.UsedRange;
@@ -145,7 +156,7 @@ namespace BirdManagment
                     comboBox2.Items.Add(CageIds);
 
                 }
-
+                comboBox2.Text=textBox6.Text.ToString();
                 wbCage.Close();
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(wbCage);
                 wbCage = null;
@@ -164,7 +175,8 @@ namespace BirdManagment
 
         public void button3_Click(object sender, EventArgs e)
         {
-            if (comboBox2.Text.Equals(""))
+            string gend, head, breast, body;
+            if (comboBox2.Text.Equals(textBox6.Text) && comboBox3.Text.Equals(textBox9.Text) && comboBox4.Text.Equals(textBox10.Text) && comboBox5.Text.Equals(textBox11.Text))
             {
                 DialogResult dialogResult = MessageBox.Show("Save witouht changes?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -172,12 +184,15 @@ namespace BirdManagment
                 { 
                     MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     comboBox2.Visible= false;
+                    comboBox3.Visible= false;
+                    comboBox4.Visible= false;
+                    comboBox5.Visible= false;
                     button2.Enabled = true;
                     button3.Enabled = false;
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    MessageBox.Show("Editing enabled!\n Choose cage first and save.", "Error 212", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Editing enabled!\n Fill in all fileds", "Error 219", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
 
@@ -196,13 +211,32 @@ namespace BirdManagment
                     if (string.Equals(cageID, Convert.ToString(wsBird.Cells[row, 1].Value)))
                     {
                         wsBird.Cells[row, 4].Value = comboBox2.Text;
+                        wsBird.Cells[row, 9].Value = comboBox3.Text;
+                        wsBird.Cells[row, 10].Value = comboBox4.Text;
+                        wsBird.Cells[row, 11].Value = comboBox5.Text;
                         textBox6.Text = Convert.ToString(wsBird.Cells[row, 4].Value);
-                        comboBox2.Visible = false;
+                        textBox9.Text = Convert.ToString(wsBird.Cells[row, 9].Value);
+                        textBox10.Text = Convert.ToString(wsBird.Cells[row, 10].Value);
+                        textBox11.Text = Convert.ToString(wsBird.Cells[row, 11].Value);
+                        gend = Convert.ToString(wsBird.Cells[row, 5].Value);
+                        head = Convert.ToString(wsBird.Cells[row, 9].Value);
+                        breast = Convert.ToString(wsBird.Cells[row, 10].Value);
+                        body = Convert.ToString(wsBird.Cells[row, 11].Value);
+                        try
+                        {
+                            pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\" + gend + head + breast + body + ".png");
+                        }
+                        catch (FileNotFoundException e1)
+                        {
+                            pictureBox1.Image = Image.FromFile(@"C:\FeatherFriend\DataBased\birdphoto\checkmark.gif");
+                            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                            Console.WriteLine("Catch in the add Bird Picture");
+                        }
                         break;
                     }
 
                 }
-
+               
                 button3.Enabled = false;
                 button2.Enabled = true;
                 wbBird.Save();
@@ -214,6 +248,9 @@ namespace BirdManagment
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(app2);
                 app2 = null;
                 comboBox2.Visible = false;
+                comboBox3.Visible= false;
+                comboBox4.Visible= false;
+                comboBox5.Visible= false;
                 MessageBox.Show("Data saved.", "Success 105", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
