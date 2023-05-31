@@ -1,6 +1,8 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Application = Microsoft.Office.Interop.Excel.Application;
@@ -147,8 +149,9 @@ namespace BirdManagment
                 return;
             }
 
+            string hashedPassword = GetHashedPassword(password); 
 
-            
+
             string filePath = @"C:\FeatherFriend\DataBased\UsersDB.xlsx";
             Application app = new Application();
             Workbook wb = app.Workbooks.Open(filePath);
@@ -160,10 +163,10 @@ namespace BirdManagment
             for (int i = 2; i <= rowCount; i++)
             {
                 string rowUsername = ws.Cells[i, 1].Value.ToString().Trim();
-                string rowPassword = ws.Cells[i, 2].Value.ToString().Trim();
+                string rowPassword = ws.Cells[i, 2].Value.ToString();
                 Console.WriteLine(rowUsername + " " + rowPassword);
                 if (CompareStrings(rowUsername, username) == 0) {
-                    if (CompareStrings(rowPassword, password) == 0)
+                    if (CompareStrings(rowPassword, hashedPassword) == 0)
                     {
 
                         wb.Close();
@@ -212,6 +215,21 @@ namespace BirdManagment
             System.GC.Collect();
             System.GC.WaitForPendingFinalizers();
 
+        }
+        private string GetHashedPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
         }
 
         private void Label2_Click(object sender, EventArgs e)

@@ -3,6 +3,8 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BirdManagment
 {
@@ -167,10 +169,11 @@ namespace BirdManagment
             {
                 row++;
             }
+            string hashedPassword = GetHashedPassword(password);
 
-            
+
             ws.Cells[row, 1].Value = username;
-            ws.Cells[row, 2].Value = password;
+            ws.Cells[row, 2].Value = hashedPassword;
             ws.Cells[row, 3].Value = ID;
 
 
@@ -198,7 +201,21 @@ namespace BirdManagment
 
 
         }
+        private string GetHashedPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
 
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
+        }
         private void Button2_Click(object sender, EventArgs e)
         {
             var myForm = new Login_v1();
