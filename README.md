@@ -8,6 +8,20 @@ The project was prepared as part of the course "Testing and quality in software 
 ## Demo
 [![ezgif-com-video-to-gif.gif](https://i.postimg.cc/t4CNt5rM/ezgif-com-video-to-gif.gif)](https://postimg.cc/F78ShjXy)
 
+## Installation
+
+To get started with the project,
+Extract the zip file to destination 
+```bash
+  C:\FeatherFriend
+```
+
+And the BirdManagmentTests folder move to 
+```bash
+  C:\BirdManagmentTests
+```
+
+
 ## 🚀 About Us
 Software engineering students at Sami Shimon College in Beer Sheva
 
