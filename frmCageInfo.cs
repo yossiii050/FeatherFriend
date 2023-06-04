@@ -186,6 +186,9 @@ namespace BirdManagment
                     comboBox2.Visible = false;
                     button2.Enabled = true;
                     button3.Enabled = false;
+                    textBox1.Enabled = false;
+                    textBox2.Enabled = false;
+                    textBox3.Enabled = false;
                 } 
             }
             else
